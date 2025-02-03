@@ -22,7 +22,25 @@ public class LogicaGenerador : MonoBehaviour
         if (timeBetween <= 0)
         {
             random = Random.Range(0, teclas.Length);
-            Instantiate(teclas[random], transform.position, Quaternion.identity);
+
+            if (teclas[random] == teclas[0])
+            {
+                teclas[0].transform.position = new Vector3(-3, 6);
+            }
+            else if (teclas[random] == teclas[1])
+            {
+                teclas[1].transform.position = new Vector3(-1, 6);
+            }
+            else if (teclas[random] == teclas[2])
+            {
+                teclas[2].transform.position = new Vector3(1, 6);
+            }
+            else if (teclas[random] == teclas[3])
+            {
+                teclas[3].transform.position = new Vector3(3, 6);
+            }
+
+            Instantiate(teclas[random]);
             timeBetween = startTime;
         }
         else
