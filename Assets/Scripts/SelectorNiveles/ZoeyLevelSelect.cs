@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class ZoeyLevelSelect : MonoBehaviour
@@ -14,11 +15,12 @@ public class ZoeyLevelSelect : MonoBehaviour
 
     private Vector2 targetPosition;
     private Vector2 currentPosition;
+    bool onNode = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
     private void Update()
     {
@@ -30,6 +32,10 @@ public class ZoeyLevelSelect : MonoBehaviour
                 targetIndex = 0;
             }
             target = targets[targetIndex];
+        }
+        if (onNode && Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("Batalla"); // Cambia la escena
         }
     }
     // Update is called once per frame
@@ -44,6 +50,21 @@ public class ZoeyLevelSelect : MonoBehaviour
             Vector3 pos = transform.position;
             pos.z = -1;
             transform.position = pos;
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Plataform")) // Verifica si colisiona con la plataforma
+        {
+            onNode = true;
+        }
+
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Plataform")) // Verifica si colisiona con la plataforma
+        {
+            onNode = false;
         }
     }
 }
