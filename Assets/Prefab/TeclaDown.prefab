@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6774642446701154110}
   - component: {fileID: 1155751802934000569}
   - component: {fileID: 3332472412779830471}
-  - component: {fileID: 4282448529016342880}
   - component: {fileID: 3107747789684059214}
+  - component: {fileID: 3748239321981445177}
   m_Layer: 6
   m_Name: TeclaDown
   m_TagString: Tecla
@@ -120,7 +120,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -2.5}
+  m_Offset: {x: 0, y: -2.3633657}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -131,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8, y: 1}
+  m_Size: {x: 8, y: 0.72673154}
   m_EdgeRadius: 0
 --- !u!61 &3332472412779830471
 BoxCollider2D:
@@ -165,7 +165,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.5}
+  m_Offset: {x: 0, y: 2.394896}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -176,23 +176,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8, y: 1}
+  m_Size: {x: 8, y: 0.7897918}
   m_EdgeRadius: 0
---- !u!114 &4282448529016342880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2285149227121681157}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c388c65b6e82d104ba7ee5e1adaca6ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  counter: 0
-  inside: 0
 --- !u!114 &3107747789684059214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,3 +193,48 @@ MonoBehaviour:
   speed: 3
   counter: 0
   inside: 0
+--- !u!61 &3748239321981445177
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285149227121681157}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.23122966}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8, y: 6}
+    newSize: {x: 8, y: 6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8, y: 0.9550097}
+  m_EdgeRadius: 0

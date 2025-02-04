@@ -10,7 +10,9 @@ public class LogicaTeclaRight : MonoBehaviour
     public int counter = 0;
     public bool inside = false;
     float vertical;
- 
+    public float minY = 0.5f;
+    public float maxY = -1.25f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +27,13 @@ public class LogicaTeclaRight : MonoBehaviour
         Vector3 direction = new Vector3(0, vertical).normalized;
 
         transform.position += direction * speed * Time.deltaTime;
-        
+
         //verificar si la tecla esta dentro
-        if (counter == 2)
+        if (counter == 3)
+        {
+            inside = true;
+        }
+        else if (counter == 2)
         {
             inside = true;
         }
@@ -49,6 +55,18 @@ public class LogicaTeclaRight : MonoBehaviour
                 GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().text.text = "Score: " +
                     GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score.ToString();
 
+                if (counter == 2 /*&& transform.position.y >= minY*/)
+                {
+                    Debug.Log("Early!!");
+                }
+                else if (counter == 2 /*&& transform.position.y <= maxY*/)
+                {
+                    Debug.Log("Late!!");
+                }
+                else
+                {
+                    Debug.Log("Excelent!!");
+                }
                 Destroy(gameObject);
             }
         }
