@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,10 @@ public class LogicaGenerador : MonoBehaviour
     public float startTime;
     public int random;
 
+    private float timer = 0f;
+
+    public float timeStop = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +24,17 @@ public class LogicaGenerador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (timer >= timeStop)
+        {
+            Debug.Log("volver a menu ataque");
+            return;
+        }
+
+        timer += Time.deltaTime;
+
         if (timeBetween <= 0)
         {
-            random = Random.Range(0, teclas.Length);
+            random = UnityEngine.Random.Range(0, teclas.Length);
 
             if (teclas[random] == teclas[0])
             {

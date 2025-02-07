@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using TMPro;
 
 public class LogicaTeclaLeft : MonoBehaviour
 {
@@ -10,14 +11,23 @@ public class LogicaTeclaLeft : MonoBehaviour
    public int counter = 0;
    public bool inside = false;
    float vertical;
-   public float minY = 0.5f;
+   public float minY = 0f;
    public float maxY = -1.25f;
+
+   TextMeshProUGUI hitText;
 
 
     // Start is called before the first frame update
     void Start()
     {
         vertical = -1f;
+
+        hitText = GameObject.Find("Hit Text").GetComponent<TextMeshProUGUI>();
+
+        if (hitText != null)
+        {
+            hitText.text = "";
+        }
 
     }
 
@@ -55,21 +65,39 @@ public class LogicaTeclaLeft : MonoBehaviour
                 GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().text.text = "Score: " +
                     GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score.ToString();
 
-                if (counter == 2 /*&& transform.position.y >= minY*/)
+                if (transform.position.y > minY)
                 {
-                    Debug.Log("Early!!");
+                   ShowText("Early!!");
                 }
-                else if (counter == 2 /*&& transform.position.y <= maxY*/)
+                else if (transform.position.y <= maxY)
                 {
-                    Debug.Log("Late!!");
+                    ShowText("Late!!");
                 }
                 else
                 {
-                    Debug.Log("Excelent!!");
+                    ShowText("Excelent!!");
                 }
                 Destroy(gameObject);
             }
         }
+
+    }
+
+    private void ShowText(string message)
+    {
+        if (hitText != null)
+        {
+            hitText.text = message;
+            StartCoroutine(ClearTextAfterDelay(1f));
+        }
+    }
+
+    private IEnumerator ClearTextAfterDelay(float delay)
+    {
+
+        yield return new WaitForSeconds(delay);
+
+        hitText.text = "";
 
     }
         public void OnTriggerEnter2D(Collider2D collision)
