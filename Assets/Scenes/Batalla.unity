@@ -814,7 +814,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 370350137}
-  - component: {fileID: 370350136}
+  - component: {fileID: 370350138}
   m_Layer: 0
   m_Name: Enemigo
   m_TagString: Untagged
@@ -822,24 +822,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &370350136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 370350135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b978bc1172e3d446bea8f1e4351c2ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidaActual: 3
-  vidaMax: 3
-  cambioVida:
-    m_PersistentCalls:
-      m_Calls: []
-  changeMenu: {fileID: 411324758}
 --- !u!4 &370350137
 Transform:
   m_ObjectHideFlags: 0
@@ -855,6 +837,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &370350138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370350135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd6744c6d187234dbd5f8e6760322d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaActualEnemigo: 0
+  vidaMaxEnemigo: 3
+  cambioVidaEnemigo:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &411324757
 GameObject:
   m_ObjectHideFlags: 0
@@ -3141,7 +3140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c1128bb1c7cd84d99cef2f1dbba16d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaActual: 5
+  vidaActual: 0
   vidaMax: 5
   cambioVida:
     m_PersistentCalls:
@@ -3597,8 +3596,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70d4fde38c5941944ad4fa11306f79a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dano: 1
   score: 0
   text: {fileID: 545638885}
+  Enemigo: {fileID: 370350135}
+  EnemyLife: {fileID: 370350138}
 --- !u!61 &1433714403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3908,6 +3910,8 @@ MonoBehaviour:
   menuInicial: {fileID: 1550042309}
   generador: {fileID: 671056588}
   menuGameplay: {fileID: 737890844}
+  eventSystem: {fileID: 1278287235}
+  botonAttack: {fileID: 1631169735}
 --- !u!4 &1493932360
 Transform:
   m_ObjectHideFlags: 0
@@ -4645,15 +4649,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1762533149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aebeff1b14163f469fde047e1da6534, type: 3}
+  m_Script: {fileID: 11500000, guid: ef42e9697420a3f45ac98fe0a1b86c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listaCorazones: []
+  listaCorazonesEnemigo: []
   corazonPrefab: {fileID: 4463848625641371799, guid: 0810dd28d835fea4aa9231234065481a, type: 3}
-  vidaEnemigo: {fileID: 370350136}
-  IndexActual: 0
-  corazonLleno: {fileID: 21300000, guid: 21885f3fcdbd9d043aada4da7e1210ad, type: 3}
-  corazonVacio: {fileID: 21300000, guid: 3719706daa96496459661e94caeddd38, type: 3}
+  EnemyLife: {fileID: 370350138}
+  IndexActualEnemigo: 0
+  corazonLlenoEnemigo: {fileID: 21300000, guid: 21885f3fcdbd9d043aada4da7e1210ad, type: 3}
+  corazonVacioEnemigo: {fileID: 21300000, guid: edef4d75697d2a1489f64f2009c7affd, type: 3}
 --- !u!1 &1913066798
 GameObject:
   m_ObjectHideFlags: 0

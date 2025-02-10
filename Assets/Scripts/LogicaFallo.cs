@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class LogicaFallo : MonoBehaviour
 {
@@ -24,13 +25,7 @@ public class LogicaFallo : MonoBehaviour
         if (collision.gameObject.tag == "Tecla" )
         {
             GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score--;
-            GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().text.text = "Score: " +
-            GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score.ToString();
             if (vidaJugador != null) { vidaJugador.TomarDaño(dañar); }
-            
-
-            //SceneManager.LoadScene("SampleScene");
-
         }
     }
 }
