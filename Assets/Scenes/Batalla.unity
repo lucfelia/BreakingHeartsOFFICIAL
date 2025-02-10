@@ -4652,7 +4652,7 @@ MonoBehaviour:
   corazonPrefab: {fileID: 4463848625641371799, guid: 0810dd28d835fea4aa9231234065481a, type: 3}
   vidaEnemigo: {fileID: 370350136}
   IndexActual: 0
-  corazonLleno: {fileID: 21300000, guid: 7a70eba0e231a82438e9d4f8d7f9d1bb, type: 3}
+  corazonLleno: {fileID: 21300000, guid: 21885f3fcdbd9d043aada4da7e1210ad, type: 3}
   corazonVacio: {fileID: 21300000, guid: 3719706daa96496459661e94caeddd38, type: 3}
 --- !u!1 &1913066798
 GameObject:
