@@ -4,17 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 
-public class CorazonUI : MonoBehaviour
+public class CorazonUIEnemy : MonoBehaviour
 {
     public List<Image> listaCorazones;
     public GameObject corazonPrefab;
-    public VidaJugador vidaJugador;
+    public VidaEnemigo vidaEnemigo;
     public int IndexActual;
     public Sprite corazonLleno;
     public Sprite corazonVacio;
 
     private void Awake() {
-        vidaJugador.cambioVida.AddListener(CambiarCorazones);
+        vidaEnemigo.cambioVida.AddListener(CambiarCorazones);
 
     }
     private void CambiarCorazones(int vidaActual) {

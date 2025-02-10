@@ -190,9 +190,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480d0ac46dbddb40ac8f9e707c84cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "da\xF1ar": 1
+  vidaEnemigo: {fileID: 6249928984542730001, guid: 25b02fb2760a55d4288d091ebe69e7b0, type: 3}
   speed: 3
   counter: 0
   inside: 0
+  minY: 0
+  maxY: -1.25
 --- !u!61 &5788839483372781804
 BoxCollider2D:
   m_ObjectHideFlags: 0

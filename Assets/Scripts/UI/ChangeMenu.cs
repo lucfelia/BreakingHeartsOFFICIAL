@@ -10,6 +10,7 @@ public class ChangeMenu : MonoBehaviour
     public GameObject menuBeats;
     public GameObject menuGameplay;
     public GameObject menuGameOver;
+    public GameObject menuInstrucciones;
     public EventSystem eventSystem;
     public GameObject botonOptions;
     public GameObject botonAttack;
@@ -23,6 +24,7 @@ public class ChangeMenu : MonoBehaviour
         menuBeats.SetActive(false);
         menuGameplay.SetActive(false);
         menuGameOver.SetActive(false);
+        menuInstrucciones.SetActive(true);
         eventSystem.SetSelectedGameObject(botonAttack);
     }
     public void AbrirMenuBeats()
@@ -31,6 +33,7 @@ public class ChangeMenu : MonoBehaviour
         menuBeats.SetActive(true);
         menuGameplay.SetActive(false);
         menuGameOver.SetActive(false);
+        menuInstrucciones.SetActive(true);
         eventSystem.SetSelectedGameObject(botonOptions);
     }
     public void AbrirMenuGameplay()
@@ -39,6 +42,7 @@ public class ChangeMenu : MonoBehaviour
         menuBeats.SetActive(false);
         menuGameplay.SetActive(true);
         menuGameOver.SetActive(false);
+        menuInstrucciones.SetActive(false);
     }
     public void GameOver()
     {
@@ -46,6 +50,7 @@ public class ChangeMenu : MonoBehaviour
         menuBeats.SetActive(false);
         menuGameplay.SetActive(false);
         menuGameOver.SetActive(true);
+        menuInstrucciones.SetActive(false);
         Time.timeScale = 0;
     }
     public void Restart()

@@ -7,6 +7,9 @@ using TMPro;
 
 public class LogicaTeclaUp : MonoBehaviour
 {
+    public int dañar = 1;
+    public GameObject Enemigo;
+    public VidaEnemigo logicavidaEnemigo;
     public float speed;
     public int counter = 0;
     public bool inside = false;
@@ -22,7 +25,8 @@ public class LogicaTeclaUp : MonoBehaviour
         hitText = GameObject.Find("Hit Text").GetComponent<TextMeshProUGUI>();
 
         vertical = -1f;
-
+        Enemigo = GameObject.Find("Enemigo");
+        if (Enemigo != null) { logicavidaEnemigo = Enemigo.GetComponent<VidaEnemigo>(); }
         if (hitText != null)
         {
             hitText.text = "";
@@ -75,6 +79,12 @@ public class LogicaTeclaUp : MonoBehaviour
                 else
                 {
                     ShowText("Excelent!!");
+                }
+                if (GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score % 20 == 0)
+                {
+                    Debug.Log("Enemigo ouch");
+                    logicavidaEnemigo.TomarDaño(dañar);
+                    //if (vidaEnemigo != null) { vidaEnemigo.TomarDaño(dañar); }
                 }
                 Destroy(gameObject);
             }
