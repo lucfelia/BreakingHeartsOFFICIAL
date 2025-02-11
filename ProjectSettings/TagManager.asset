@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tecla
   - Plataform
+  - Reset
   layers:
   - Default
   - TransparentFX

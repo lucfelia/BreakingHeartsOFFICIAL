@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3450725729466746446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 6, z: 0}
+  m_LocalPosition: {x: -3, y: 6, z: 0}
   m_LocalScale: {x: 0.17, y: 0.17, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -190,13 +190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd76499bc5d674b449a420a401758ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "da\xF1ar": 1
-  vidaEnemigo: {fileID: 6249928984542730001, guid: 25b02fb2760a55d4288d091ebe69e7b0, type: 3}
   speed: 3
   counter: 0
   inside: 0
-  minY: 0
-  maxY: -1.25
+  height: 0
 --- !u!61 &8189529514157363132
 BoxCollider2D:
   m_ObjectHideFlags: 0

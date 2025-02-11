@@ -26,7 +26,7 @@ public class LogicaJugador : MonoBehaviour
     void Update()
     {
         if (score <= 0) { score = 0; }
-        if (score % 20 == 0 && score != lastdano)
+        if (score % 40 == 0 && score != lastdano)
         {
             Debug.Log("Enemigo ouch");
             Debug.Log(lastdano);

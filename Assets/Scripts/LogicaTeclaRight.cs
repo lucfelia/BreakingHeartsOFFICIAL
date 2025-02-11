@@ -11,8 +11,7 @@ public class LogicaTeclaRight : MonoBehaviour
     public int counter = 0;
     public bool inside = false;
     float vertical;
-    public float minY = 0f;
-    public float maxY = -1.25f;
+    public float height = 0f;
     TextMeshProUGUI hitText;
 
 
@@ -60,21 +59,29 @@ public class LogicaTeclaRight : MonoBehaviour
         {
             if(inside == true)
             {
-                GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score++;
-                GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().text.text = "Score: " +
-                    GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score.ToString();
-
-                if (transform.position.y > minY)
+                if (counter == 2)
                 {
-                    ShowText("Early!!");
-                }
-                else if (transform.position.y <= maxY)
-                {
-                    ShowText("Late!!");
+                    if (transform.position.y > height)
+                    {
+                        GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score += 2;
+                        GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().text.text = "Score: " +
+                        GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score.ToString();
+                        ShowText("Early!!");
+                    }
+                    else if (transform.position.y < height)
+                    {
+                        GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score += 2;
+                        GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().text.text = "Score: " +
+                        GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score.ToString();
+                        ShowText("Late!!");
+                    }
                 }
                 else
                 {
-                    ShowText("Excelent!!");
+                    GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score += 4;
+                    GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().text.text = "Score: " +
+                    GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score.ToString();
+                    ShowText("Excellent!!");
                 }
                 Destroy(gameObject);
             }
@@ -87,7 +94,7 @@ public class LogicaTeclaRight : MonoBehaviour
         if (hitText != null)
         {
             hitText.text = message;
-            StartCoroutine(ClearTextAfterDelay(1f));
+            StartCoroutine(ClearTextAfterDelay(5f));
         }
     }
 

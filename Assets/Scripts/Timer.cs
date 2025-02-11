@@ -9,41 +9,48 @@ public class Timer : MonoBehaviour
     private float timer = 0f;
     private bool generatorOff = false;
 
+    public float timeEnemy = 3f;
     public float timeStop = 10f;
     public float timeMenu = 12.5f;
 
-    public GameObject menuInicial;
     public GameObject generador;
     public GameObject menuGameplay;
     public EventSystem eventSystem;
-    public GameObject botonAttack;
+    public ChangeMenu ChangeMenu;
 
     // Start is called before the first frame update
     void Start()
     {
         timer = 0f;
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timer >= timeStop && !generatorOff)
+        timer = 0f;
+        while (ChangeMenu.menuGameplay.activeSelf)
         {
-            Debug.Log("generador false");
-            generador.SetActive(false);
-            generatorOff = true;
+            if (timer >= timeStop && !generatorOff)
+            {
+                Debug.Log("generador false");
+                generador.SetActive(false);
+                generatorOff = true;
+            }
+            if (timer >= timeMenu)
+            {
+                generador.SetActive(true);
+                timer = 0f;
+                generatorOff = false;
+                ChangeMenu.EnemyTurn();
+            }
+            timer += Time.deltaTime;
         }
-        if (timer >= timeMenu)
+        while (ChangeMenu.menuEnemy.activeSelf)
         {
-            Debug.Log("volver a menu ataque");
-            menuInicial.SetActive(true);
-            eventSystem.SetSelectedGameObject(botonAttack);
-            generador.SetActive(true);
-            menuGameplay.SetActive(false);
-            timer = 0f;
-            generatorOff = false;
+            if (timer >= timeEnemy)
+            {
+                ChangeMenu.EnemyTurn();
+            }
         }
-        timer += Time.deltaTime;
     }
 }
