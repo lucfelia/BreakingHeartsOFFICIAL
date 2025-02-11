@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     private float timer = 0f;
-    private bool generatorOff = false;
-
+    public GameObject enemy;
     public float timeEnemy = 1.5f;
     public float timeStop = 10f;
     public float timeMenu = 12.5f;
@@ -29,17 +28,13 @@ public class Timer : MonoBehaviour
     {
         if (ChangeMenu.menuGameplay.activeSelf)
         {
-            if (timer >= timeStop && !generatorOff)
+            if (timer >= timeStop)
             {
-                Debug.Log("generador false");
-                generador.SetActive(false);
-                generatorOff = true;
+
             }
             if (timer >= timeMenu)
             {
-                generador.SetActive(true);
                 timer = 0f;
-                generatorOff = false;
                 ChangeMenu.EnemyTurn();
             }
             timer += Time.deltaTime;

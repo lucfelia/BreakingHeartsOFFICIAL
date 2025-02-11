@@ -193,8 +193,9 @@ MonoBehaviour:
   speed: 3
   counter: 0
   inside: 0
-  minY: 0
-  maxY: -1.25
+  height: 0
+  hitText: {fileID: 8071715458547865379, guid: 05338c07b945bd740a19431fe460e914, type: 3}
+  parentText: {fileID: 0}
 --- !u!61 &5788839483372781804
 BoxCollider2D:
   m_ObjectHideFlags: 0

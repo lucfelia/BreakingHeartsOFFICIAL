@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using TMPro;
+using Microsoft.Unity.VisualStudio.Editor;
 
 public class LogicaTeclasDown : MonoBehaviour
 {
@@ -11,22 +9,16 @@ public class LogicaTeclasDown : MonoBehaviour
     public int counter = 0;
     public bool inside = false;
     float vertical;
-    public float height = 0f;    
-     TextMeshProUGUI hitText;
-
+    public float height = 0f;
+    public GameObject Textos;
+    public LogicaTextos LogicaTextos;
 
     // Start is called before the first frame update
     void Start()
     {
-        hitText = GameObject.Find("Hit Text").GetComponent<TextMeshProUGUI>();
-
         vertical = -1f;
-
-        if (hitText != null)
-        {
-            hitText.text = "";
-        }
-
+        Textos = GameObject.Find("Textos");
+        if (Textos != null) { LogicaTextos = Textos.GetComponent<LogicaTextos>(); }
     }
 
     // Update is called once per frame
@@ -37,18 +29,7 @@ public class LogicaTeclasDown : MonoBehaviour
         transform.position += direction * speed * Time.deltaTime;
 
         //verificar si la tecla esta dentro
-        if (counter == 3)
-        {
-            inside = true;
-        }
-        else if (counter == 2)
-        {
-            inside = true;
-        }
-        else
-        {
-            inside = false;
-        }
+        inside = (counter == 2 || counter == 3);
 
         if (transform.position.y <= -5.28f)
         {
@@ -57,68 +38,41 @@ public class LogicaTeclasDown : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if(inside == true)
+            if (inside)
             {
                 if (counter == 2)
                 {
                     if (transform.position.y > height)
                     {
-                        GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score += 2;
-                        GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().text.text = "Score: " +
-                        GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score.ToString();
-                        ShowText("Early!!");
+                        LogicaTextos.UpdateScore(2);
+                        LogicaTextos.ShowText("Early!!");
                     }
                     else if (transform.position.y < height)
                     {
-                        GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score += 2;
-                        GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().text.text = "Score: " +
-                        GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score.ToString();
-                        ShowText("Late!!");
+                        LogicaTextos.UpdateScore(2);
+                        LogicaTextos.ShowText("Late!!");
                     }
                 }
                 else
                 {
-                    GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score += 4;
-                    GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().text.text = "Score: " +
-                    GameObject.Find("Beat_Area").GetComponent<LogicaJugador>().score.ToString();
-                    ShowText("Excellent!!");
+                    LogicaTextos.UpdateScore(4);
+                    LogicaTextos.ShowText("Excellent!!");
                 }
-
                 Destroy(gameObject);
+                Debug.Log("Arrow Destroyed: " + gameObject.name);
             }
+        
         }
-
-    }
-    private void ShowText(string message)
-    {
-        if (hitText != null)
-        {
-            hitText.text = message;
-            StartCoroutine(ClearTextAfterDelay(5f));
-        }
+        LogicaTextos.UpdateTextShowTime();
     }
 
-    private IEnumerator ClearTextAfterDelay(float delay)
-    {
-
-        yield return new WaitForSeconds(delay);
-
-        hitText.text = "";
-
-    }
     public void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.gameObject.tag == "Player")
-            {
-            counter++;
-            }
-        } 
-    
-        public void OnTriggerExit2D(Collider2D collision)
-        {
-            if (collision.gameObject.tag == "Player")
-            {
-            counter--;
-            }
-        }
+    {
+        if (collision.gameObject.tag == "Player") { counter++; }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player") { counter--; }
+    }
 }
