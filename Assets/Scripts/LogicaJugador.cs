@@ -12,6 +12,8 @@ public class LogicaJugador : MonoBehaviour
     public GameObject Enemigo;
     public EnemyLife EnemyLife;
 
+    private int damageDone = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +28,12 @@ public class LogicaJugador : MonoBehaviour
     void Update()
     {
         if (score <= 0) { score = 0; }
-        if (score % 40 == 0 && score != lastdano)
-        {
+        if(score/40 > damageDone){
             Debug.Log("Enemigo ouch");
             Debug.Log(lastdano);
             EnemyLife.TomarDañoEnemigo(dano);
             lastdano = score;
+            damageDone += dano;
         }
         text.text = "Score: " + score.ToString();
     }

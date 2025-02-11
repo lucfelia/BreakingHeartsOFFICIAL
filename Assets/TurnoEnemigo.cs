@@ -10,8 +10,17 @@ public class TurnoEnemigo : MonoBehaviour
     public ChangeMenu ChangeMenu;
     public int dano_r; 
     public int dano;
+    public bool ataco = false;
     // Start is called before the first frame update
     void Start()
+    {
+
+
+        
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         dano_r = Random.Range(232, 680);
 
@@ -25,13 +34,19 @@ public class TurnoEnemigo : MonoBehaviour
         }
         else { dano = 1;}
 
-        Debug.Log("enemigo ataca");
-        VidaJugador.TomarDaño(dano);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (ChangeMenu.menuEnemy.activeSelf) {
+            if (!ataco)
+            {
+                Debug.Log("enemigo ataca");
+                Debug.Log(dano_r);
+                VidaJugador.TomarDaño(dano);
+                ataco = true;
+            }
+        }
+        
+        if (ChangeMenu.menuGameplay.activeSelf)
+        {
+            ataco = false;
+        }
     }
 }

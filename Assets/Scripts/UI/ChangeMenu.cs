@@ -22,6 +22,7 @@ public class ChangeMenu : MonoBehaviour
 
     public void AbrirMenuInicial()
     {
+        Debug.Log("Cambio menu inicial");
         menuInicial.SetActive(true);
         menuBeats.SetActive(false);
         menuEnemy.SetActive(false);
@@ -32,6 +33,7 @@ public class ChangeMenu : MonoBehaviour
     }
     public void AbrirMenuBeats()
     {
+        Debug.Log("Cambio menu beats");
         menuInicial.SetActive(false);
         menuBeats.SetActive(true);
         menuGameplay.SetActive(false);
@@ -41,6 +43,7 @@ public class ChangeMenu : MonoBehaviour
     }
     public void AbrirMenuGameplay()
     {
+        Debug.Log("Cambio menu gameplay");
         menuInicial.SetActive(false);
         menuBeats.SetActive(false);
         menuGameplay.SetActive(true);
@@ -50,6 +53,7 @@ public class ChangeMenu : MonoBehaviour
     }
     public void EnemyTurn()
     {
+        Debug.Log("Cambio menu enemigo");
         menuEnemy.SetActive(true);
         menuInicial.SetActive(false);
         menuBeats.SetActive(false);
@@ -59,6 +63,7 @@ public class ChangeMenu : MonoBehaviour
     }
     public void GameOver()
     {
+        Debug.Log("Cambio menu gameover");
         menuInicial.SetActive(false);
         menuBeats.SetActive(false);
         menuGameplay.SetActive(false);
@@ -68,6 +73,7 @@ public class ChangeMenu : MonoBehaviour
     }
     public void Restart()
     {
+        Debug.Log("Juego reiniciado");
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

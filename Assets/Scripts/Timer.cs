@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     private float timer = 0f;
     private bool generatorOff = false;
 
-    public float timeEnemy = 3f;
+    public float timeEnemy = 1.5f;
     public float timeStop = 10f;
     public float timeMenu = 12.5f;
 
@@ -27,8 +27,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer = 0f;
-        while (ChangeMenu.menuGameplay.activeSelf)
+        if (ChangeMenu.menuGameplay.activeSelf)
         {
             if (timer >= timeStop && !generatorOff)
             {
@@ -45,12 +44,14 @@ public class Timer : MonoBehaviour
             }
             timer += Time.deltaTime;
         }
-        while (ChangeMenu.menuEnemy.activeSelf)
+        if (ChangeMenu.menuEnemy.activeSelf)
         {
             if (timer >= timeEnemy)
             {
-                ChangeMenu.EnemyTurn();
+                timer = 0f;
+                ChangeMenu.AbrirMenuInicial();
             }
+            timer += Time.deltaTime;
         }
     }
 }
