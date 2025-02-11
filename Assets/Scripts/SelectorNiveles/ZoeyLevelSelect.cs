@@ -33,7 +33,7 @@ public class ZoeyLevelSelect : MonoBehaviour
             }
             target = targets[targetIndex];
         }
-        if (onNode && Input.GetKeyDown(KeyCode.Space))
+        if (onNode && Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene("Batalla"); // Cambia la escena
         }
