@@ -30,12 +30,13 @@ public class Timer : MonoBehaviour
         {
             if (timer >= timeStop)
             {
-
+                generador.SetActive(false);
             }
             if (timer >= timeMenu)
             {
                 timer = 0f;
                 ChangeMenu.EnemyTurn();
+                generador.SetActive(true);
             }
             timer += Time.deltaTime;
         }

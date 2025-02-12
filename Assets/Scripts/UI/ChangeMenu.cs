@@ -15,7 +15,6 @@ public class ChangeMenu : MonoBehaviour
     public EventSystem eventSystem;
     public GameObject botonOptions;
     public GameObject botonAttack;
-
     public VidaJugador vidaJugador;
     public int curar = 1;
     public bool curado = false;
