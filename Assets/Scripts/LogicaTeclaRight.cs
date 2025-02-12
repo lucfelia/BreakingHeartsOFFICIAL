@@ -1,8 +1,5 @@
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Microsoft.Unity.VisualStudio.Editor;
-using UnityEngine.UIElements;
 
 public class LogicaTeclaRight : MonoBehaviour
 {
