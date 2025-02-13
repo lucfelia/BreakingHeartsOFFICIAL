@@ -13,6 +13,7 @@ public class ChangeMenu : MonoBehaviour
     public EventSystem eventSystem;
     public GameObject botonOptions;
     public GameObject botonAttack;
+    public GameObject botonRestart;
     public VidaJugador vidaJugador;
     public int curar = 1;
     public bool curado = false;
@@ -66,6 +67,7 @@ public class ChangeMenu : MonoBehaviour
         menuGameplay.SetActive(false);
         menuGameOver.SetActive(true);
         menuInstrucciones.SetActive(false);
+        eventSystem.SetSelectedGameObject(botonRestart);
         Time.timeScale = 0;
     }
     public void Restart()
