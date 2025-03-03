@@ -15,6 +15,7 @@ public class ChangeMenu : MonoBehaviour
     public GameObject botonAttack;
     public GameObject botonRestart;
     public VidaJugador vidaJugador;
+    public GameObject menuCuracion;
     public int curar = 1;
     public bool curado = false;
 
@@ -58,6 +59,7 @@ public class ChangeMenu : MonoBehaviour
         menuGameplay.SetActive(false);
         menuGameOver.SetActive(false);
         menuInstrucciones.SetActive(false);
+        menuCuracion.SetActive(false);
     }
     public void GameOver()
     {
@@ -79,10 +81,13 @@ public class ChangeMenu : MonoBehaviour
 
     public void CurarJugador()
     {
-        if (vidaJugador != null && !curado)
-        {
-            vidaJugador.CurarVida(curar);
-            curado = true;
-        }
+        Debug.Log("Cambio menu");
+        menuCuracion.SetActive(true);
+        menuInicial.SetActive(false);
+        menuBeats.SetActive(false);
+        menuGameplay.SetActive(false);
+        menuGameOver.SetActive(false);
+        menuInstrucciones.SetActive(false);
+
     }
 }

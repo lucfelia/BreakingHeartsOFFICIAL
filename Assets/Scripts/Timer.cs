@@ -11,11 +11,16 @@ public class Timer : MonoBehaviour
     public float timeEnemy = 1.5f;
     public float timeStop = 10f;
     public float timeMenu = 12.5f;
+    public float timeHeal = 5f;
+
 
     public GameObject generador;
     public GameObject menuGameplay;
     public EventSystem eventSystem;
     public ChangeMenu ChangeMenu;
+    public VidaJugador vidaJugador;
+   
+    
 
     // Start is called before the first frame update
     void Start()
@@ -49,5 +54,20 @@ public class Timer : MonoBehaviour
             }
             timer += Time.deltaTime;
         }
+        if (ChangeMenu.menuCuracion.activeSelf)
+        {          
+            if (timer >= timeHeal)
+            {                
+                timer = 0f;
+                ChangeMenu.EnemyTurn();   
+            }
+            if (vidaJugador.vidaActual == vidaJugador.vidaMax)
+            {
+                timer = 0f;
+                ChangeMenu.EnemyTurn();
+            }
+            timer += Time.deltaTime;
+        }
+
     }
 }

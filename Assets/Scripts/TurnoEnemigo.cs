@@ -43,10 +43,10 @@ public class TurnoEnemigo : MonoBehaviour
                 ataco = true;
             }
         }
-        
-        if (ChangeMenu.menuGameplay.activeSelf)
+        if (ChangeMenu.menuGameplay.activeSelf || ChangeMenu.menuCuracion.activeSelf)
         {
             ataco = false;
         }
+        
     }
 }
