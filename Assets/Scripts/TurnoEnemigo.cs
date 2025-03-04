@@ -7,16 +7,18 @@ using UnityEngine.SocialPlatforms.Impl;
 public class TurnoEnemigo : MonoBehaviour
 {
     public VidaJugador VidaJugador;
-    public ChangeMenu ChangeMenu;
+    private GameObject canvas;
+    private MenuManager menuManager;
     public int dano_r; 
     public int dano;
     public bool ataco = false;
     // Start is called before the first frame update
     void Start()
     {
+        canvas = GameObject.Find("Canvas");
+        if (canvas != null) menuManager = canvas.GetComponent<MenuManager>();
 
 
-        
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class TurnoEnemigo : MonoBehaviour
         }
         else { dano = 1;}
 
-        if (ChangeMenu.menuEnemy.activeSelf) {
+        if (menuManager.contraataqueGameplay.activeSelf) {
             if (!ataco)
             {
                 Debug.Log("enemigo ataca");
@@ -43,7 +45,7 @@ public class TurnoEnemigo : MonoBehaviour
                 ataco = true;
             }
         }
-        if (ChangeMenu.menuGameplay.activeSelf || ChangeMenu.menuCuracion.activeSelf)
+        if (menuManager.playingClassic || menuManager.curarGameplay.activeSelf)
         {
             ataco = false;
         }

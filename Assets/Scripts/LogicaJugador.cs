@@ -20,7 +20,7 @@ public class LogicaJugador : MonoBehaviour
     {
         //encuentre a scoreui en unity y saque lo que tiene escrito
         text = GameObject.Find("ScoreUI").GetComponent<TextMeshProUGUI>();
-        Enemigo = GameObject.Find("Enemigo");
+        Enemigo = GameObject.Find("EnemyLogic");
         if (Enemigo != null) { EnemyLife = Enemigo.GetComponent<EnemyLife>(); }
     }
 

@@ -16,7 +16,7 @@ public class LogicaTeclaRight : MonoBehaviour
     void Start()
     {        
         vertical = -1f;
-        textHolder = GameObject.Find("textHolder");
+        textHolder = GameObject.Find("EstadoTextHolder");
         if (textHolder != null) { Debug.Log("TextHolderDetected"); }
 
         Beat_Area = GameObject.Find("Beat_Area");
@@ -33,7 +33,7 @@ public class LogicaTeclaRight : MonoBehaviour
         //verificar si la tecla esta dentro
         inside = (counter == 2 || counter == 3);
 
-        if (transform.position.y <= -5.28f)
+        if (transform.position.y <= -3f)
         {
             Destroy(gameObject);
         }

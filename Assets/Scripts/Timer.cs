@@ -7,31 +7,33 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     private float timer = 0f;
+    private float healed = 0f;
     public GameObject enemy;
     public float timeEnemy = 1.5f;
     public float timeStop = 10f;
     public float timeMenu = 12.5f;
     public float timeHeal = 5f;
 
+    private GameObject canvas;
+    private MenuManager menuManager;
 
     public GameObject generador;
     public GameObject menuGameplay;
     public EventSystem eventSystem;
-    public ChangeMenu ChangeMenu;
     public VidaJugador vidaJugador;
-   
-    
 
     // Start is called before the first frame update
     void Start()
     {
         timer = 0f;
-    }
 
-    // Update is called once per frame
-    void Update()
+        canvas = GameObject.Find("Canvas");
+        if (canvas != null) menuManager = canvas.GetComponent<MenuManager>();
+    }
+        // Update is called once per frame
+        void Update()
     {
-        if (ChangeMenu.menuGameplay.activeSelf)
+        if (menuManager.playingClassic)
         {
             if (timer >= timeStop)
             {
@@ -40,34 +42,40 @@ public class Timer : MonoBehaviour
             if (timer >= timeMenu)
             {
                 timer = 0f;
-                ChangeMenu.EnemyTurn();
+                menuManager.AbrirMenuContraataque();
                 generador.SetActive(true);
             }
             timer += Time.deltaTime;
         }
-        if (ChangeMenu.menuEnemy.activeSelf)
+        if (menuManager.contraataqueGameplay.activeSelf)
         {
             if (timer >= timeEnemy)
             {
                 timer = 0f;
-                ChangeMenu.AbrirMenuInicial();
+                menuManager.AbrirMenuInicial();
             }
             timer += Time.deltaTime;
         }
-        if (ChangeMenu.menuCuracion.activeSelf)
+        if (menuManager.curarGameplay.activeSelf)
         {          
             if (timer >= timeHeal)
             {                
                 timer = 0f;
-                ChangeMenu.EnemyTurn();   
+                menuManager.AbrirMenuContraataque();   
             }
             if (vidaJugador.vidaActual == vidaJugador.vidaMax)
             {
                 timer = 0f;
-                ChangeMenu.EnemyTurn();
+                healed += Time.deltaTime;
+                if (healed >= timeEnemy)
+                {
+                    Debug.Log("Healed timer off");
+                    timer = 0f; 
+                    healed = 0f; 
+                    menuManager.AbrirMenuContraataque(); 
+                }
             }
             timer += Time.deltaTime;
         }
-
     }
 }

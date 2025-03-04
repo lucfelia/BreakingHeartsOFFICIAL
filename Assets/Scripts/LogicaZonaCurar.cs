@@ -19,7 +19,7 @@ public class LogicaZonaCurar : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             if (inside == true)
             {

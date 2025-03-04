@@ -7,7 +7,7 @@ public class VidaJugador : MonoBehaviour
     public int vidaMax;
     public UnityEvent<int> cambioVida;
 
-    public ChangeMenu changeMenu;
+    public MenuManager MenuManager;
 
     // Start is called before the first frame update
     private void Start() {
@@ -22,7 +22,7 @@ public class VidaJugador : MonoBehaviour
         else { vidaActual = vidaTemporal; }
         cambioVida.Invoke(vidaActual);
         if (vidaTemporal <= 0) {
-            if (changeMenu != null) { changeMenu.GameOver(); }
+            if (MenuManager != null) { MenuManager.AbrirMenuGameover(); }
         }
     }
     public void CurarVida (int cantidadCuracion) {
