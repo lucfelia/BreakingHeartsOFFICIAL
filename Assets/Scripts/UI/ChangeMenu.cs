@@ -6,14 +6,21 @@ public class ChangeMenu : MonoBehaviour
 {
     public GameObject menuInicial;
     public GameObject menuBeats;
+
     public GameObject menuGameplay;
+    public GameObject menuPlayA;
+
     public GameObject menuGameOver;
+
     public GameObject menuInstrucciones;
     public GameObject menuEnemy;
+
     public EventSystem eventSystem;
+
     public GameObject botonOptions;
     public GameObject botonAttack;
     public GameObject botonRestart;
+
     public VidaJugador vidaJugador;
     public GameObject menuCuracion;
     public int curar = 1;
@@ -26,6 +33,7 @@ public class ChangeMenu : MonoBehaviour
         menuBeats.SetActive(false);
         menuEnemy.SetActive(false);
         menuGameplay.SetActive(false);
+        menuPlayA.SetActive(false);
         menuGameOver.SetActive(false);
         menuInstrucciones.SetActive(true);
         eventSystem.SetSelectedGameObject(botonAttack);
@@ -38,6 +46,7 @@ public class ChangeMenu : MonoBehaviour
         menuGameplay.SetActive(false);
         menuGameOver.SetActive(false);
         menuInstrucciones.SetActive(true);
+        menuPlayA.SetActive(false);
         eventSystem.SetSelectedGameObject(botonOptions);
     }
     public void AbrirMenuGameplay()
@@ -46,6 +55,7 @@ public class ChangeMenu : MonoBehaviour
         menuInicial.SetActive(false);
         menuBeats.SetActive(false);
         menuGameplay.SetActive(true);
+        menuPlayA.SetActive(true);
         menuGameOver.SetActive(false);
         menuInstrucciones.SetActive(false);
         curado = false;
