@@ -3,8 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MenuManager : MonoBehaviour
-{
+public class MenuManager : MonoBehaviour {
     //Event system
     public EventSystem eventSystem;
     public VidaJugador vidaJugador;
@@ -13,25 +12,32 @@ public class MenuManager : MonoBehaviour
     //Inicial
     public GameObject menuInicial;
     public GameObject inicioDefault;
+    public GameObject gameplayUI;
         //Beats
-    public bool escogiendoBeat = false;
+    private bool escogiendoBeat = false;
     public GameObject[] menuBeats;
     public GameObject beatDefault;
-    public bool puedocurar = false;
+    private bool puedocurar = false;
     public Button curarDefault;
         //panel
     public GameObject panel;
 
     //Gameplays
-    public bool playingClassic = false;
         //Classic beat
+    public bool playingClassic = false;
     public GameObject[] classicBeatGameplay;
+        //Nightcore beat
+    public bool playingNightcore = false;
+    public GameObject[] nightcoreBeatGameplay;
+        //Reggaeton beat
+    public bool playingReggaeton = false;
+    public GameObject[] reggaetonBeatGameplay;
+        //Contraataque beat
+    public bool playingContraataque = false;
+    public GameObject[] contraataqueGameplay;
 
-    //Otras mecanicas
-        //Curar
+    //Curar
     public GameObject curarGameplay;
-        //Contraataque
-    public GameObject contraataqueGameplay;
     
     //Gameover
     public GameObject gameover;
@@ -46,30 +52,34 @@ public class MenuManager : MonoBehaviour
         curarDefault.interactable = puedocurar;
         escogiendoBeat = false;
         playingClassic = false;
+        playingNightcore = false;
+        playingReggaeton = false;
+        playingContraataque = false;
         puedocurar = false;
         curarGameplay.SetActive(false);
-        contraataqueGameplay.SetActive(false);
         gameover.SetActive(false);
+        gameplayUI.SetActive(false);
     }
-
     private void Update()
     {
-        
         if (vidaJugador.vidaActual == vidaJugador.vidaMax) { puedocurar = false; }
         else { puedocurar = true; }
         curarDefault.interactable = puedocurar;
 
-        if (playingClassic) {
-            foreach (GameObject game in classicBeatGameplay) game.SetActive(true);
-        } else {
-            foreach (GameObject game in classicBeatGameplay) game.SetActive(false);
-        }
+        if (playingClassic) { foreach (GameObject game in classicBeatGameplay) game.SetActive(true); } 
+        else { foreach (GameObject game in classicBeatGameplay) game.SetActive(false); }
 
-        if (escogiendoBeat) {
-            foreach (GameObject beat in menuBeats) beat.SetActive(true);
-        } else {
-            foreach (GameObject beat in menuBeats) beat.SetActive(false);
-        }
+        if (playingNightcore) { foreach (GameObject game in nightcoreBeatGameplay) game.SetActive(true); } 
+        else { foreach (GameObject game in nightcoreBeatGameplay) game.SetActive(false); }
+
+        if (playingReggaeton) { foreach (GameObject game in reggaetonBeatGameplay) game.SetActive(true); }
+        else { foreach (GameObject game in reggaetonBeatGameplay) game.SetActive(false); }
+
+        if (escogiendoBeat) { foreach (GameObject beat in menuBeats) beat.SetActive(true); } 
+        else { foreach (GameObject beat in menuBeats) beat.SetActive(false); }
+
+        if (playingContraataque) { foreach (GameObject contraataque in contraataqueGameplay) contraataque.SetActive(true); } 
+        else { foreach (GameObject contraataque in contraataqueGameplay) contraataque.SetActive(false); }
     }
 
     public void AbrirMenuInicial()
@@ -77,7 +87,7 @@ public class MenuManager : MonoBehaviour
         Debug.Log("[MenuManager.cs] - Inicio");
         //desactivado:
         escogiendoBeat = false;
-        contraataqueGameplay.SetActive(false);
+        playingContraataque = false;
         curarGameplay.SetActive(false);
         //activado:
         panel.SetActive(true);
@@ -102,28 +112,50 @@ public class MenuManager : MonoBehaviour
         escogiendoBeat = false;
         //activado:
         playingClassic = true;
+        gameplayUI.SetActive(true);
+    }
+    public void AbrirMenuNightcoreGameplay()
+    {
+        Debug.Log("[MenuManager.cs] - Nightcore Gameplay");
+        //desactivado:
+        panel.SetActive(false);
+        escogiendoBeat = false;
+        //activado:
+        playingNightcore = true;
+        gameplayUI.SetActive(true);
+    }
+    public void AbrirMenuReggaetonGameplay()
+    {
+        Debug.Log("[MenuManager.cs] - Reggaeton Gameplay");
+        //desactivado:
+        panel.SetActive(false);
+        escogiendoBeat = false;
+        //activado:
+        playingReggaeton = true;
+        gameplayUI.SetActive(true);
     }
     public void AbrirMenuContraataque()
     {
         Debug.Log("[MenuManager.cs] - Contraataque");
         //desactivado:
         playingClassic = false;
+        playingReggaeton = false;
+        playingNightcore = false;
+        gameplayUI.SetActive(false);
         curarGameplay.SetActive(false);
         //activado:
-        contraataqueGameplay.SetActive(true);
+        playingContraataque = true;
     }
-
     public void AbrirMenuCurar()
     {
         Debug.Log("[MenuManager.cs] - Curar Gameplay");
         //desactivado:
         panel.SetActive(false);
         menuInicial.SetActive(false);
-        contraataqueGameplay.SetActive(false);
+        playingContraataque = false;
         //activado:
         curarGameplay.SetActive(true);
     }
-
     public void AbrirMenuGameover()
     {
         Debug.Log("[MenuManager.cs] - Gameover");
@@ -133,7 +165,6 @@ public class MenuManager : MonoBehaviour
         //activado:
         gameover.SetActive(true);
     }
-
     public void ReiniciarNivel()
     {
         Debug.Log("[MenuManager.cs] - Reinicio");

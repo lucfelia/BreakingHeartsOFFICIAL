@@ -47,7 +47,7 @@ public class Timer : MonoBehaviour
             }
             timer += Time.deltaTime;
         }
-        if (menuManager.contraataqueGameplay.activeSelf)
+        if (menuManager.playingContraataque)
         {
             if (timer >= timeEnemy)
             {

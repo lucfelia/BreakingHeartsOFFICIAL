@@ -36,7 +36,7 @@ public class TurnoEnemigo : MonoBehaviour
         }
         else { dano = 1;}
 
-        if (menuManager.contraataqueGameplay.activeSelf) {
+        if (menuManager.playingContraataque) {
             if (!ataco)
             {
                 Debug.Log("enemigo ataca");
