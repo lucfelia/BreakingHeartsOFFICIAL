@@ -263,10 +263,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 620191536}
-    m_SelectOnRight: {fileID: 1541227666}
+    m_SelectOnUp: {fileID: 620191536}
+    m_SelectOnDown: {fileID: 259985698}
+    m_SelectOnLeft: {fileID: 1541227666}
+    m_SelectOnRight: {fileID: 259985698}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
@@ -900,8 +900,8 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 69875234}
+    m_SelectOnDown: {fileID: 620191536}
     m_SelectOnLeft: {fileID: 1541227666}
     m_SelectOnRight: {fileID: 620191536}
   m_Transition: 1
@@ -1504,12 +1504,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1631169737}
+    m_SelectOnDown: {fileID: 1631169737}
+    m_SelectOnLeft: {fileID: 1631169737}
+    m_SelectOnRight: {fileID: 1631169737}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.5573524, g: 0.30649695, b: 0.6320754, a: 1}
@@ -2163,9 +2163,9 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 259985698}
+    m_SelectOnUp: {fileID: 259985698}
+    m_SelectOnDown: {fileID: 69875234}
+    m_SelectOnLeft: {fileID: 1541227666}
     m_SelectOnRight: {fileID: 69875234}
   m_Transition: 1
   m_Colors:
@@ -2803,7 +2803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &766611571
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5137,7 +5137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1541227665
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5173,8 +5173,8 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 1
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 259985698}
+    m_SelectOnDown: {fileID: 69875234}
     m_SelectOnLeft: {fileID: 69875234}
     m_SelectOnRight: {fileID: 259985698}
   m_Transition: 1
@@ -5477,12 +5477,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 504584805}
+    m_SelectOnDown: {fileID: 504584805}
+    m_SelectOnLeft: {fileID: 504584805}
+    m_SelectOnRight: {fileID: 504584805}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.6226415, g: 0.31367034, b: 0.36626115, a: 1}
@@ -6324,7 +6324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1838900437
 RectTransform:
   m_ObjectHideFlags: 0
