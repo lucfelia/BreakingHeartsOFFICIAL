@@ -55,9 +55,6 @@ public class LogicaTeclaM : MonoBehaviour
                          playerLogic.score += 2;
                         playerLogic.text.text = "Score: " + playerLogic.score.ToString();
 
-                        Destroy(gameObject);
-                        Debug.Log("Letter Destroyed: " + gameObject.name);
-
                         Debug.Log("Early");
 
                     }
@@ -68,9 +65,6 @@ public class LogicaTeclaM : MonoBehaviour
                         playerLogic.score += 2;
                         playerLogic.text.text = "Score: " + playerLogic.score.ToString();
 
-                        Destroy(gameObject);
-                        Debug.Log("Letter Destroyed: " + gameObject.name);
-
                         Debug.Log("Late");
                     }
                 }
@@ -78,14 +72,14 @@ public class LogicaTeclaM : MonoBehaviour
                 {
                     GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
                     HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Excellent");
-                    playerLogic.score += 4;
+                    playerLogic.score += 8;
                     playerLogic.text.text = "Score: " + playerLogic.score.ToString();
-
-                    Destroy(gameObject);
-                    Debug.Log("Letter Destroyed: " + gameObject.name);
 
                     Debug.Log("Excellent");
                 }
+
+                Destroy(gameObject);
+                Debug.Log("Letter Destroyed: " + gameObject.name);
 
             }
 

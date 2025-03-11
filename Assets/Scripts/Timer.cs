@@ -17,7 +17,8 @@ public class Timer : MonoBehaviour
     private GameObject canvas;
     private MenuManager menuManager;
 
-    public GameObject generador;
+    public GameObject generadorLofi;
+    public GameObject generadorNightCore;
     public GameObject menuGameplay;
     public EventSystem eventSystem;
     public VidaJugador vidaJugador;
@@ -37,27 +38,41 @@ public class Timer : MonoBehaviour
         {
             if (timer >= timeStop)
             {
-                generador.SetActive(false);
+                generadorLofi.SetActive(false);
             }
             if (timer >= timeMenu)
             {
                 timer = 0f;
                 menuManager.AbrirMenuContraataque();
-                generador.SetActive(true);
+                generadorLofi.SetActive(true);
             }
             timer += Time.deltaTime;
         }
-                    // Me impedia la ejecucion completa del Contraataque!!!
+        if (menuManager.playingNightcore)
+        {
+            if (timer >= timeStop)
+            {
+                generadorNightCore.SetActive(false);
+            }
+            if (timer >= timeMenu)
+            {
+                timer = 0f;
+                menuManager.AbrirMenuContraataque();
+                generadorNightCore.SetActive(true);
+            }
+            timer += Time.deltaTime;
+        }
+        // Me impedia la ejecucion completa del Contraataque!!!
 
-                /*if (menuManager.playingContraataque)
-                {
-                    if (timer >= timeEnemy)
-                    {
-                        timer = 0f;
-                        menuManager.AbrirMenuInicial();
-                    }
-                    timer += Time.deltaTime;
-                }*/
+        /*if (menuManager.playingContraataque)
+        {
+            if (timer >= timeEnemy)
+            {
+                timer = 0f;
+                menuManager.AbrirMenuInicial();
+            }
+            timer += Time.deltaTime;
+        }*/
         if (menuManager.curarGameplay.activeSelf)
         {          
             if (timer >= timeHeal)

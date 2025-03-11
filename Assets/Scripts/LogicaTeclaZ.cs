@@ -73,7 +73,7 @@ public class LogicaTeclaZ : MonoBehaviour
                 {
                     GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
                     HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Excellent");
-                    playerLogic.score += 4;
+                    playerLogic.score += 8;
                     playerLogic.text.text = "Score: " + playerLogic.score.ToString();
 
                     Debug.Log("Excellent");
