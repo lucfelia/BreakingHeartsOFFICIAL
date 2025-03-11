@@ -47,15 +47,17 @@ public class Timer : MonoBehaviour
             }
             timer += Time.deltaTime;
         }
-        if (menuManager.playingContraataque)
-        {
-            if (timer >= timeEnemy)
-            {
-                timer = 0f;
-                menuManager.AbrirMenuInicial();
-            }
-            timer += Time.deltaTime;
-        }
+                    // Me impedia la ejecucion completa del Contraataque!!!
+
+                /*if (menuManager.playingContraataque)
+                {
+                    if (timer >= timeEnemy)
+                    {
+                        timer = 0f;
+                        menuManager.AbrirMenuInicial();
+                    }
+                    timer += Time.deltaTime;
+                }*/
         if (menuManager.curarGameplay.activeSelf)
         {          
             if (timer >= timeHeal)
