@@ -34,58 +34,35 @@ public class Timer : MonoBehaviour
         // Update is called once per frame
         void Update()
     {
-        if (menuManager.playingClassic)
-        {
-            if (timer >= timeStop)
-            {
+        if (menuManager.playingClassic) {
+            if (timer >= timeStop) {
                 generadorLofi.SetActive(false);
             }
-            if (timer >= timeMenu)
-            {
+            if (timer >= timeMenu) {
                 timer = 0f;
                 menuManager.AbrirMenuContraataque();
                 generadorLofi.SetActive(true);
             }
             timer += Time.deltaTime;
         }
-        if (menuManager.playingNightcore)
-        {
-            if (timer >= timeStop)
-            {
-                generadorNightCore.SetActive(false);
-            }
-            if (timer >= timeMenu)
-            {
+        if (menuManager.playingNightcore) {
+            if (timer >= timeStop) { generadorNightCore.SetActive(false); }
+            if (timer >= timeMenu) {
                 timer = 0f;
                 menuManager.AbrirMenuContraataque();
                 generadorNightCore.SetActive(true);
             }
             timer += Time.deltaTime;
         }
-        // Me impedia la ejecucion completa del Contraataque!!!
-
-        /*if (menuManager.playingContraataque)
-        {
-            if (timer >= timeEnemy)
-            {
-                timer = 0f;
-                menuManager.AbrirMenuInicial();
-            }
-            timer += Time.deltaTime;
-        }*/
-        if (menuManager.curarGameplay.activeSelf)
-        {          
-            if (timer >= timeHeal)
-            {                
+        if (menuManager.curarGameplay.activeSelf) {          
+            if (timer >= timeHeal) {                
                 timer = 0f;
                 menuManager.AbrirMenuContraataque();   
             }
-            if (vidaJugador.vidaActual == vidaJugador.vidaMax)
-            {
+            if (vidaJugador.vidaActual == vidaJugador.vidaMax) {
                 timer = 0f;
                 healed += Time.deltaTime;
-                if (healed >= timeEnemy)
-                {
+                if (healed >= timeEnemy) {
                     Debug.Log("Healed timer off");
                     timer = 0f; 
                     healed = 0f; 

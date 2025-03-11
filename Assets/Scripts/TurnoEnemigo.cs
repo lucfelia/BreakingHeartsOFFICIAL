@@ -1,18 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.SocialPlatforms.Impl;
-using UnityEngine.UI;
 
 public class TurnoEnemigo : MonoBehaviour
 {
-    public GameObject teclaShowUp;
-    public GameObject teclaShowDown;
-    public GameObject teclaShowLeft;
-    public GameObject teclaShowRight;
-
     public VidaJugador VidaJugador;
     private GameObject canvas;
     private MenuManager menuManager;
@@ -31,10 +21,10 @@ public class TurnoEnemigo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        teclaShowDown.SetActive(false);
-        teclaShowUp.SetActive(false);
-        teclaShowRight.SetActive(false);
-        teclaShowLeft.SetActive(false);
+        teclas[0].SetActive(false);
+        teclas[1].SetActive(false);
+        teclas[2].SetActive(false);
+        teclas[3].SetActive(false);
         timer = 0f;
         randomKey = UnityEngine.Random.Range(0, teclas.Length);
         canvas = GameObject.Find("Canvas");
@@ -53,7 +43,7 @@ public class TurnoEnemigo : MonoBehaviour
             
             if (teclas[randomKey] == teclas[0])
             {
-                teclaShowDown.SetActive(true);
+                teclas[0].SetActive(true);
                 teclas[0].transform.position = new Vector3(0, 0);
                 if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
@@ -66,7 +56,7 @@ public class TurnoEnemigo : MonoBehaviour
             }
             else if (teclas[randomKey] == teclas[1])
             {
-                teclaShowLeft.SetActive(true);
+                teclas[1].SetActive(true);
                 teclas[1].transform.position = new Vector3(0, 0);
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
@@ -79,7 +69,7 @@ public class TurnoEnemigo : MonoBehaviour
             }
             else if (teclas[randomKey] == teclas[2])
             {
-                teclaShowRight.SetActive(true);
+                teclas[2].SetActive(true);
                 teclas[2].transform.position = new Vector3(0, 0);
                 if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
@@ -92,7 +82,7 @@ public class TurnoEnemigo : MonoBehaviour
             }
             else if (teclas[randomKey] == teclas[3])
             {
-                teclaShowUp.SetActive(true);
+                teclas[3].SetActive(true);
                 teclas[3].transform.position = new Vector3(0, 0);
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
@@ -109,28 +99,14 @@ public class TurnoEnemigo : MonoBehaviour
                 //Defensa
                 if (combocontra >= 6 && combocontra <= 11)
                 {
-                    timer = 0f;
-                    combocontra = 0;
-                    randomKey = UnityEngine.Random.Range(0, teclas.Length);
-                    teclaShowDown.SetActive(false);
-                    teclaShowUp.SetActive(false);
-                    teclaShowRight.SetActive(false);
-                    teclaShowLeft.SetActive(false);
-                    menuManager.AbrirMenuInicial();
+                    
                 }
                 //Contraataque
                 else if (combocontra >= 12)
                 {
                     dano = 1;
                     EnemyLife.TomarDañoEnemigo(dano);
-                    timer = 0f;
-                    combocontra = 0;
-                    randomKey = UnityEngine.Random.Range(0, teclas.Length);
-                    teclaShowDown.SetActive(false);
-                    teclaShowUp.SetActive(false);
-                    teclaShowRight.SetActive(false);
-                    teclaShowLeft.SetActive(false);
-                    menuManager.AbrirMenuInicial();
+                    ResetGameplay();
                 }
                 //RecibirDaño
                 else if (combocontra <= 5)
@@ -142,12 +118,8 @@ public class TurnoEnemigo : MonoBehaviour
         }
     }
 
-    public void hurtRand()
+    private void hurtRand()
     {
-        teclaShowDown.SetActive(false);
-        teclaShowUp.SetActive(false);
-        teclaShowRight.SetActive(false);
-        teclaShowLeft.SetActive(false);
         dano_r = Random.Range(232, 680);
         if (dano_r % 4 == 0) dano = 2;
         else if (dano_r % 9 == 0) dano = 3;
@@ -155,9 +127,18 @@ public class TurnoEnemigo : MonoBehaviour
         Debug.Log("enemigo ataca");
         Debug.Log(dano_r);
         VidaJugador.TomarDaño(dano);
+        ResetGameplay();
+    }
+
+    private void ResetGameplay()
+    {
         timer = 0f;
         combocontra = 0;
         randomKey = UnityEngine.Random.Range(0, teclas.Length);
+        teclas[0].SetActive(false);
+        teclas[1].SetActive(false);
+        teclas[2].SetActive(false);
+        teclas[3].SetActive(false);
         menuManager.AbrirMenuInicial();
     }
 }
