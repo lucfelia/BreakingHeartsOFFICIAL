@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LogicaTeclaM : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class LogicaTeclaM : MonoBehaviour
     float horizontal;
     public float height = 0f;
     public GameObject Beat_Area;
-    //public LogicaJugador playerLogic;
+    public LogicaJugador playerLogic;
     public GameObject hitTextPrefab, textHolder;
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class LogicaTeclaM : MonoBehaviour
         if (textHolder != null) { Debug.Log("TextHolderDetected"); }
 
         Beat_Area = GameObject.Find("BeatDe");
-        //if (Beat_Area != null) { playerLogic = Beat_Area.GetComponent<LogicaJugador>(); }
+        if (Beat_Area != null) { playerLogic = Beat_Area.GetComponent<LogicaJugador>(); }
     }
 
     // Update is called once per frame
@@ -49,35 +50,43 @@ public class LogicaTeclaM : MonoBehaviour
                 {
                     if (transform.position.y > height)
                     {
-                        //GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
-                        //HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Early");
-                        // playerLogic.score += 2;
-                        //playerLogic.text.text = "Score: " + playerLogic.score.ToString();
+                        GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
+                        HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Early");
+                         playerLogic.score += 2;
+                        playerLogic.text.text = "Score: " + playerLogic.score.ToString();
+
+                        Destroy(gameObject);
+                        Debug.Log("Letter Destroyed: " + gameObject.name);
 
                         Debug.Log("Early");
 
                     }
                     else if (transform.position.y < height)
                     {
-                        //GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
-                        //HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Late");
-                        // playerLogic.score += 2;
-                        //playerLogic.text.text = "Score: " + playerLogic.score.ToString();
+                        GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
+                        HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Late");
+                        playerLogic.score += 2;
+                        playerLogic.text.text = "Score: " + playerLogic.score.ToString();
+
+                        Destroy(gameObject);
+                        Debug.Log("Letter Destroyed: " + gameObject.name);
 
                         Debug.Log("Late");
                     }
                 }
                 else
                 {
-                    //GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
-                    //HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Excellent");
-                    //playerLogic.score += 4;
-                    //playerLogic.text.text = "Score: " + playerLogic.score.ToString();
+                    GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
+                    HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Excellent");
+                    playerLogic.score += 4;
+                    playerLogic.text.text = "Score: " + playerLogic.score.ToString();
+
+                    Destroy(gameObject);
+                    Debug.Log("Letter Destroyed: " + gameObject.name);
 
                     Debug.Log("Excellent");
                 }
-                Destroy(gameObject);
-                Debug.Log("Arrow Destroyed: " + gameObject.name);
+
             }
 
         }

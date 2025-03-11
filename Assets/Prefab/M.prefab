@@ -210,5 +210,6 @@ MonoBehaviour:
   inside: 0
   height: 0
   Beat_Area: {fileID: 0}
-  hitTextPrefab: {fileID: 0}
+  playerLogic: {fileID: 0}
+  hitTextPrefab: {fileID: 3891126095502582865, guid: 4e4e65373d365614bb0ad3126e65a769, type: 3}
   textHolder: {fileID: 0}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LogicaTeclaZ : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class LogicaTeclaZ : MonoBehaviour
     float horizontal;
     public float height = 0f;
     public GameObject Beat_Area;
-    //public LogicaJugador playerLogic;
+    public LogicaJugador playerLogic;
     public GameObject hitTextPrefab, textHolder;
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class LogicaTeclaZ : MonoBehaviour
         if (textHolder != null) { Debug.Log("TextHolderDetected"); }
 
         Beat_Area = GameObject.Find("BeatIz");
-        //if (Beat_Area != null) { playerLogic = Beat_Area.GetComponent<LogicaJugador>(); }
+        if (Beat_Area != null) { playerLogic = Beat_Area.GetComponent<LogicaJugador>(); }
     }
 
     // Update is called once per frame
@@ -49,19 +50,19 @@ public class LogicaTeclaZ : MonoBehaviour
                 {
                     if (transform.position.y > height)
                     {
-                        //GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
-                        //HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Early");
-                        // playerLogic.score += 2;
-                        //playerLogic.text.text = "Score: " + playerLogic.score.ToString();
+                        GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
+                        HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Early");
+                        playerLogic.score += 2;
+                        playerLogic.text.text = "Score: " + playerLogic.score.ToString();
 
                         Debug.Log("Early");
                     }
                     else if (transform.position.y < height)
                     {
-                        //GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
-                        //HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Late");
-                        // playerLogic.score += 2;
-                        //playerLogic.text.text = "Score: " + playerLogic.score.ToString();                    
+                        GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
+                        HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Late");
+                        playerLogic.score += 2;
+                        playerLogic.text.text = "Score: " + playerLogic.score.ToString();
 
                         Debug.Log("Late");
 
@@ -70,10 +71,10 @@ public class LogicaTeclaZ : MonoBehaviour
                 }
                 else
                 {
-                    //GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
-                    //HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Excellent");
-                    //playerLogic.score += 4;
-                    //playerLogic.text.text = "Score: " + playerLogic.score.ToString();
+                    GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
+                    HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Excellent");
+                    playerLogic.score += 4;
+                    playerLogic.text.text = "Score: " + playerLogic.score.ToString();
 
                     Debug.Log("Excellent");
                 }

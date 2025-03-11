@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 248372672}
   - component: {fileID: 248372671}
   - component: {fileID: 248372670}
+  - component: {fileID: 248372673}
   m_Layer: 0
   m_Name: BeatDe
   m_TagString: Player
@@ -646,6 +647,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &248372673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248372668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d4fde38c5941944ad4fa11306f79a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dano: 1
+  score: 0
+  text: {fileID: 545638885}
+  Enemigo: {fileID: 370350135}
+  EnemyLife: {fileID: 370350138}
 --- !u!1 &279629869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,7 +1936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &580418798
 Transform:
   m_ObjectHideFlags: 0
@@ -5778,7 +5796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1550042310
 MonoBehaviour:
   m_ObjectHideFlags: 0
