@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class HoverMenu : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
-    public GameObject infoPanel;
+    //public GameObject infoPanel;
     private Animator animator;
     private Vector3 originalScale;
 

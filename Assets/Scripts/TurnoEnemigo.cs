@@ -14,8 +14,8 @@ public class TurnoEnemigo : MonoBehaviour
     public EnemyLife EnemyLife;
     private float timer = 0f;
     public float timeStop = 2f;
+    public TextMeshProUGUI contadorText;
     int combocontra = 0;
-    public TextMeshProUGUI enemytext;
     int randomKey;
 
     // Start is called before the first frame update
@@ -25,6 +25,7 @@ public class TurnoEnemigo : MonoBehaviour
         teclas[1].SetActive(false);
         teclas[2].SetActive(false);
         teclas[3].SetActive(false);
+        contadorText.text = "";
         timer = 0f;
         randomKey = UnityEngine.Random.Range(0, teclas.Length);
         canvas = GameObject.Find("Canvas");
@@ -38,16 +39,23 @@ public class TurnoEnemigo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (menuManager.contraataque2Gameplay.activeSelf) { 
-            enemytext.text = teclas[randomKey].ToString() + combocontra.ToString();
-            
+        if (menuManager.playingContraataque) {
+
+            contadorText.text = combocontra.ToString();
+            //Defensa
+            if (combocontra > 7 && combocontra < 10) contadorText.color = Color.Lerp(Color.white, new Color(1.5f, 0.25f, 0f), 1f); //naranja
+            //Contraataque
+            else if (combocontra >= 10) contadorText.color = Color.red;
+            //RecibirDaño
+            else if (combocontra <= 7) contadorText.color = Color.yellow;
+
             if (teclas[randomKey] == teclas[0])
             {
                 teclas[0].SetActive(true);
-                teclas[0].transform.position = new Vector3(0, 0);
                 if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     combocontra++;
+                    contadorText.fontSize = contadorText.fontSize + 25;
                     Debug.Log(combocontra);
                 }
                 else if (Input.GetKeyDown(KeyCode.LeftArrow)
@@ -57,10 +65,10 @@ public class TurnoEnemigo : MonoBehaviour
             else if (teclas[randomKey] == teclas[1])
             {
                 teclas[1].SetActive(true);
-                teclas[1].transform.position = new Vector3(0, 0);
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     combocontra++;
+                    contadorText.fontSize = contadorText.fontSize + 25;
                     Debug.Log(combocontra);
                 }
                 else if (Input.GetKeyDown(KeyCode.DownArrow)
@@ -70,10 +78,10 @@ public class TurnoEnemigo : MonoBehaviour
             else if (teclas[randomKey] == teclas[2])
             {
                 teclas[2].SetActive(true);
-                teclas[2].transform.position = new Vector3(0, 0);
                 if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     combocontra++;
+                    contadorText.fontSize = contadorText.fontSize + 25;
                     Debug.Log(combocontra);
                 }
                 else if (Input.GetKeyDown(KeyCode.LeftArrow)
@@ -83,10 +91,10 @@ public class TurnoEnemigo : MonoBehaviour
             else if (teclas[randomKey] == teclas[3])
             {
                 teclas[3].SetActive(true);
-                teclas[3].transform.position = new Vector3(0, 0);
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     combocontra++;
+                    contadorText.fontSize = contadorText.fontSize + 25;
                     Debug.Log(combocontra);
                 }
                 else if (Input.GetKeyDown(KeyCode.LeftArrow)
@@ -97,20 +105,23 @@ public class TurnoEnemigo : MonoBehaviour
             if (timer >= timeStop)
             {
                 //Defensa
-                if (combocontra >= 6 && combocontra <= 11)
+                if (combocontra > 7 && combocontra < 10)
                 {
-                    
+                    contadorText.color = Color.Lerp(Color.white, new Color(1.5f,0.5f,0f),0.5f); //naranja
+                    ResetGameplay();
                 }
                 //Contraataque
-                else if (combocontra >= 12)
+                else if (combocontra >= 10)
                 {
+                    contadorText.color = Color.red;
                     dano = 1;
                     EnemyLife.TomarDañoEnemigo(dano);
                     ResetGameplay();
                 }
                 //RecibirDaño
-                else if (combocontra <= 5)
+                else if (combocontra <= 7)
                 {
+                    contadorText.color = Color.yellow;
                     hurtRand();
                 }
             }

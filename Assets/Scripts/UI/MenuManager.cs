@@ -42,9 +42,6 @@ public class MenuManager : MonoBehaviour {
     //Gameover
     public GameObject gameover;
 
-    //Contraataque
-    public GameObject contraataque2Gameplay;
-
     private void Start()
     {
         //activado:
@@ -62,7 +59,6 @@ public class MenuManager : MonoBehaviour {
         curarGameplay.SetActive(false);
         gameover.SetActive(false);
         gameplayUI.SetActive(false);
-        contraataque2Gameplay.SetActive(false);
     }
     private void Update()
     {
@@ -93,7 +89,6 @@ public class MenuManager : MonoBehaviour {
         escogiendoBeat = false;
         playingContraataque = false;
         curarGameplay.SetActive(false);
-        contraataque2Gameplay.SetActive(false);
         //activado:
         panel.SetActive(true);
         menuInicial.SetActive(true);
@@ -150,7 +145,6 @@ public class MenuManager : MonoBehaviour {
         curarGameplay.SetActive(false);
         //activado:
         playingContraataque = true;
-        contraataque2Gameplay.SetActive(true);
     }
     public void AbrirMenuCurar()
     {
@@ -159,7 +153,6 @@ public class MenuManager : MonoBehaviour {
         panel.SetActive(false);
         menuInicial.SetActive(false);
         playingContraataque = false;
-        contraataque2Gameplay.SetActive(false);
         //activado:
         curarGameplay.SetActive(true);
     }
