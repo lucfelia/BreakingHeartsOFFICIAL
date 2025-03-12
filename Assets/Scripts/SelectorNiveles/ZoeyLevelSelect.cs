@@ -33,7 +33,7 @@ public class ZoeyLevelSelect : MonoBehaviour
         }
         if (onNode && Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene("Batalla"); // Cambia la escena
+            SceneManager.LoadScene("Batalla_1"); // Cambia la escena
         }
     }
     // Update is called once per frame

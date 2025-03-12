@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SelectorDeNiveles.unity
     guid: dc6b830e41fc3da4ca143f5d5f67e0d2
   - enabled: 1
-    path: Assets/Scenes/Batalla.unity
+    path: Assets/Scenes/Batalla_3.unity
     guid: a30040e7bd39ff449a2f490e9e545734
+  - enabled: 1
+    path: Assets/Scenes/Batalla_1.unity
+    guid: f29791c4c2795514a8b3e7335e85952a
+  - enabled: 1
+    path: Assets/Scenes/Batalla_2.unity
+    guid: fa206a7cad2ba7d42bb201927ca050d7
   m_configObjects: {}

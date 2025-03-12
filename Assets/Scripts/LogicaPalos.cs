@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LogicaPalos : MonoBehaviour
@@ -9,6 +10,18 @@ public class LogicaPalos : MonoBehaviour
     float tiltAngle = 79.63f;
     public float beatTime = 0.10f;
     public float time = 0f;
+    public LogicaJugador playerLogic;
+    public GameObject hitTextPrefab, textHolder;
+    public GameObject Beat_Area;
+
+    private void Start()
+    {
+        textHolder = GameObject.Find("EstadoTextHolder");
+        if (textHolder != null) { Debug.Log("TextHolderDetected"); }
+
+        Beat_Area = GameObject.Find("BeatReg");
+        if (Beat_Area != null) { playerLogic = Beat_Area.GetComponent<LogicaJugador>(); }
+    }
 
     // Update is called once per frame
     void Update()
@@ -35,14 +48,26 @@ public class LogicaPalos : MonoBehaviour
 
         if (time <= 0.3f)
         {
+            GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
+            HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Early");
+            playerLogic.score += 2;
+            playerLogic.text.text = "Score: " + playerLogic.score.ToString();
             Debug.Log("EARLY");
         }
         else if (time >= 0.4f || time < 0.6f)
         {
+            GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
+            HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Excellent");
+            playerLogic.score += 4;
+            playerLogic.text.text = "Score: " + playerLogic.score.ToString();
             Debug.Log("PERFECT");
         }
         else
         {
+            GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
+            HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Late");
+            playerLogic.score += 2;
+            playerLogic.text.text = "Score: " + playerLogic.score.ToString();
             Debug.Log("LATE");
         }
 

@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,9 @@ public class MenuManager : MonoBehaviour {
     //Event system
     public EventSystem eventSystem;
     public VidaJugador vidaJugador;
+
+    //Nivel
+    private int playerLevel;
 
     //Menus
     //Inicial
@@ -19,6 +23,11 @@ public class MenuManager : MonoBehaviour {
     public GameObject beatDefault;
     private bool puedocurar = false;
     public Button curarDefault;
+
+    public Button attack1;
+    public Button attack2;
+    public Button attack3;
+
         //panel
     public GameObject panel;
 
@@ -45,6 +54,12 @@ public class MenuManager : MonoBehaviour {
 
     private void Start()
     {
+        playerLevel = PlayerPrefs.GetInt("PlayerLevel", 0);
+
+        attack1.interactable = true;
+        attack2.interactable = playerLevel >= 2;
+        attack3.interactable = playerLevel >= 3;
+
         //activado:
         panel.SetActive(true);
         menuInicial.SetActive(true);
@@ -69,12 +84,12 @@ public class MenuManager : MonoBehaviour {
 
         if (playingClassic) { foreach (GameObject game in classicBeatGameplay) game.SetActive(true); } 
         else { foreach (GameObject game in classicBeatGameplay) game.SetActive(false); }
-
-        if (playingNightcore) { foreach (GameObject game in nightcoreBeatGameplay) game.SetActive(true); } 
+        
+        if (playingNightcore) { foreach (GameObject game in nightcoreBeatGameplay) game.SetActive(true); }
         else { foreach (GameObject game in nightcoreBeatGameplay) game.SetActive(false); }
-
+        
         if (playingReggaeton) { foreach (GameObject game in reggaetonBeatGameplay) game.SetActive(true); }
-        else { foreach (GameObject game in reggaetonBeatGameplay) game.SetActive(false); }
+        else { foreach (GameObject game in reggaetonBeatGameplay) game.SetActive(false); }        
 
         if (escogiendoBeat) { foreach (GameObject beat in menuBeats) beat.SetActive(true); } 
         else { foreach (GameObject beat in menuBeats) beat.SetActive(false); }
@@ -83,8 +98,18 @@ public class MenuManager : MonoBehaviour {
         else { foreach (GameObject contraataque in contraataqueGameplay) contraataque.SetActive(false); }
     }
 
+    public void SetPlayerLevel(int level)
+    {
+        playerLevel = level;
+        PlayerPrefs.SetInt("PlayerLevel", level);
+        PlayerPrefs.Save();
+    }
+
     public void AbrirMenuInicial()
     {
+        playerLevel++;
+        SetPlayerLevel(playerLevel);
+
         Debug.Log("[MenuManager.cs] - Inicio");
         //desactivado:
         escogiendoBeat = false;
@@ -158,7 +183,7 @@ public class MenuManager : MonoBehaviour {
         curarGameplay.SetActive(true);
     }
     public void AbrirMenuGameover()
-    {
+    {        
         Debug.Log("[MenuManager.cs] - Gameover");
         //desactivado:
         Time.timeScale = 0;

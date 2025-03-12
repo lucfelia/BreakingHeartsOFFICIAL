@@ -54,6 +54,16 @@ public class Timer : MonoBehaviour
             }
             timer += Time.deltaTime;
         }
+        if (menuManager.playingReggaeton)
+        {
+            //if (timer >= timeStop) {  }
+            if (timer >= timeMenu)
+            {
+                timer = 0f;
+                menuManager.AbrirMenuContraataque();                
+            }
+            timer += Time.deltaTime;
+        }
         if (menuManager.curarGameplay.activeSelf) {          
             if (timer >= timeHeal) {                
                 timer = 0f;
