@@ -15,12 +15,15 @@ public class TurnoEnemigo : MonoBehaviour
     private float timer = 0f;
     public float timeStop = 2f;
     public TextMeshProUGUI contadorText;
+    private float contadorSize;
     int combocontra = 0;
     int randomKey;
 
     // Start is called before the first frame update
     void Start()
     {
+        contadorSize = contadorText.fontSize;
+
         teclas[0].SetActive(false);
         teclas[1].SetActive(false);
         teclas[2].SetActive(false);
@@ -143,6 +146,7 @@ public class TurnoEnemigo : MonoBehaviour
 
     private void ResetGameplay()
     {
+        contadorText.fontSize = contadorSize;
         timer = 0f;
         combocontra = 0;
         randomKey = UnityEngine.Random.Range(0, teclas.Length);

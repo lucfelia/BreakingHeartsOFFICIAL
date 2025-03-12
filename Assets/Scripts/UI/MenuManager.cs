@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour {
     public GameObject inicioDefault;
     public GameObject gameplayUI;
         //Beats
-    private bool escogiendoBeat = false;
+    public bool escogiendoBeat = false;
     public GameObject[] menuBeats;
     public GameObject beatDefault;
     private bool puedocurar = false;
@@ -41,6 +41,7 @@ public class MenuManager : MonoBehaviour {
     
     //Gameover
     public GameObject gameover;
+    public GameObject gameoverDefault;
 
     private void Start()
     {
@@ -161,9 +162,9 @@ public class MenuManager : MonoBehaviour {
         Debug.Log("[MenuManager.cs] - Gameover");
         //desactivado:
         Time.timeScale = 0;
-        playingClassic = false;
         //activado:
         gameover.SetActive(true);
+        eventSystem.SetSelectedGameObject(gameoverDefault);
     }
     public void ReiniciarNivel()
     {
