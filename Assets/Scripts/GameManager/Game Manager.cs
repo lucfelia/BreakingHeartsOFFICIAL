@@ -1,33 +1,29 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public List<int> lvlsUnblocked = new List<int>();
+    public int lvlsUnblocked;
 
-    void Awake()
-    {
+    void Awake() {
         if (Instance == null) {
             Instance = this;
             DontDestroyOnLoad(this);
-        }else
-        {
-            Debug.Log("Warning: multiple" + this + "in scene!");
         }
-        
+        else { Destroy(gameObject); }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        lvlsUnblocked.Clear();
+        lvlsUnblocked = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CompleteLevel(int levelIndex)
     {
-        
+        if (levelIndex + 1 > lvlsUnblocked) {
+            lvlsUnblocked = levelIndex + 1;
+        }
     }
 }

@@ -12,27 +12,27 @@ public class CameraController : MonoBehaviour
     private Vector2 targetPosition;
     private Vector2 currentPosition;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) {
             targetIndex++;
-            if (targetIndex >= targets.Count)
+            if (targetIndex >= GameManager.Instance.lvlsUnblocked)
+            {
+                targetIndex = GameManager.Instance.lvlsUnblocked;
+            }
+            target = targets[targetIndex];
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) {
+            targetIndex--;
+            if (targetIndex < 0)
             {
                 targetIndex = 0;
             }
             target = targets[targetIndex];
         }
     }
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if(target != null){
+
+    void FixedUpdate() {
+        if(target != null) {
             targetPosition = target.transform.position;
             currentPosition = transform.position;
 

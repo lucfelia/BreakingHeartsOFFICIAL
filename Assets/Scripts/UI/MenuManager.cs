@@ -54,11 +54,6 @@ public class MenuManager : MonoBehaviour {
 
     private void Start()
     {
-        playerLevel = PlayerPrefs.GetInt("PlayerLevel", 0);
-
-        attack1.interactable = true;
-        attack2.interactable = playerLevel >= 2;
-        attack3.interactable = playerLevel >= 3;
 
         //activado:
         panel.SetActive(true);
@@ -78,6 +73,12 @@ public class MenuManager : MonoBehaviour {
     }
     private void Update()
     {
+
+        attack1.interactable = GameManager.Instance.lvlsUnblocked >= 0;
+        attack2.interactable = GameManager.Instance.lvlsUnblocked >= 1;
+        attack3.interactable = GameManager.Instance.lvlsUnblocked >= 2;
+        ForceEventSystemToValidButton();
+
         if (vidaJugador.vidaActual == vidaJugador.vidaMax) { puedocurar = false; }
         else { puedocurar = true; }
         curarDefault.interactable = puedocurar;
@@ -96,6 +97,22 @@ public class MenuManager : MonoBehaviour {
 
         if (playingContraataque) { foreach (GameObject contraataque in contraataqueGameplay) contraataque.SetActive(true); } 
         else { foreach (GameObject contraataque in contraataqueGameplay) contraataque.SetActive(false); }
+        
+    }
+    void ForceEventSystemToValidButton() {
+        GameObject currentSelected = EventSystem.current.currentSelectedGameObject;
+
+        if (currentSelected == null || !currentSelected.GetComponent<Button>().interactable) {
+            if (attack1.interactable) {
+                EventSystem.current.SetSelectedGameObject(attack1.gameObject);
+            }
+            else if (attack2.interactable) {
+                EventSystem.current.SetSelectedGameObject(attack2.gameObject);
+            }
+            else if (attack3.interactable) {
+                EventSystem.current.SetSelectedGameObject(null);
+            }
+        }
     }
 
     public void SetPlayerLevel(int level)
