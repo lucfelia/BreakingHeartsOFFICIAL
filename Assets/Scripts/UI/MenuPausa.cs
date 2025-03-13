@@ -8,6 +8,7 @@ public class MenuPausa : MonoBehaviour
 {
     [SerializeField] private GameObject PauseButton;
     [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject workInProgress;
     private bool PausedGame = false;
 
     private void Update()
@@ -56,5 +57,17 @@ public class MenuPausa : MonoBehaviour
     {
         Debug.Log("Cerrando juego");
         Application.Quit();
+    }
+    public void OpenSettigns()
+    {
+        PauseButton.SetActive(false);
+        PauseMenu.SetActive(false);
+        workInProgress.SetActive(true);
+    }
+    public void CloseSettings()
+    {
+        PauseButton.SetActive(true);
+        PauseMenu.SetActive(true);
+        workInProgress.SetActive(false);
     }
 }
