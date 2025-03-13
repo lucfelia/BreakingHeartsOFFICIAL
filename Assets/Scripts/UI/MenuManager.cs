@@ -24,7 +24,6 @@ public class MenuManager : MonoBehaviour {
     private bool puedocurar = false;
     public Button curarDefault;
 
-    public Button attack1;
     public Button attack2;
     public Button attack3;
 
@@ -73,10 +72,8 @@ public class MenuManager : MonoBehaviour {
     }
     private void Update()
     {
-
-        attack1.interactable = GameManager.Instance.lvlsUnblocked >= 0;
-        attack2.interactable = GameManager.Instance.lvlsUnblocked >= 1;
-        attack3.interactable = GameManager.Instance.lvlsUnblocked >= 2;
+        attack2.interactable = GameManager.Instance.lvlsCompletados.Contains(0);
+        attack3.interactable = GameManager.Instance.lvlsCompletados.Contains(1);
         ForceEventSystemToValidButton();
 
         if (vidaJugador.vidaActual == vidaJugador.vidaMax) { puedocurar = false; }
@@ -103,30 +100,17 @@ public class MenuManager : MonoBehaviour {
         GameObject currentSelected = EventSystem.current.currentSelectedGameObject;
 
         if (currentSelected == null || !currentSelected.GetComponent<Button>().interactable) {
-            if (attack1.interactable) {
-                EventSystem.current.SetSelectedGameObject(attack1.gameObject);
-            }
-            else if (attack2.interactable) {
+            if (attack2.interactable) {
                 EventSystem.current.SetSelectedGameObject(attack2.gameObject);
             }
             else if (attack3.interactable) {
-                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(attack3.gameObject);
             }
         }
     }
 
-    public void SetPlayerLevel(int level)
-    {
-        playerLevel = level;
-        PlayerPrefs.SetInt("PlayerLevel", level);
-        PlayerPrefs.Save();
-    }
-
     public void AbrirMenuInicial()
     {
-        playerLevel++;
-        SetPlayerLevel(playerLevel);
-
         Debug.Log("[MenuManager.cs] - Inicio");
         //desactivado:
         escogiendoBeat = false;

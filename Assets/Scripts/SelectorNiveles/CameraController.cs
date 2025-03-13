@@ -7,7 +7,8 @@ public class CameraController : MonoBehaviour
     public GameObject target = null;
 
     public List<GameObject> targets = new List<GameObject>();
-    private int targetIndex = 0;
+    public int targetIndex = 0;
+    public bool onNode = false;
 
     private Vector2 targetPosition;
     private Vector2 currentPosition;
@@ -37,6 +38,26 @@ public class CameraController : MonoBehaviour
             currentPosition = transform.position;
 
             transform.position = Vector2.Lerp(currentPosition, targetPosition, alpha * Time.deltaTime);
+            Vector3 pos = transform.position;
+            pos.z = -1;
+            transform.position = pos;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Plataform")) // Verifica si colisiona con la plataforma
+        {
+            Debug.Log("Plataforma detectada");
+            onNode = true;
+        }
+
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Plataform")) // Verifica si colisiona con la plataforma
+        {
+            onNode = false;
         }
     }
 }

@@ -64,7 +64,7 @@ public class EnemyLife : MonoBehaviour
         if (vidaTemporalEnemigo <= 0)
         {
             Debug.Log("Enemigo vencido!");
-            GameManager.Instance.CompleteLevel(GameManager.Instance.lvlsUnblocked);
+            GameManager.Instance.CompleteLevel(LevelController.Instance.targetIndex);
 
             SceneManager.LoadScene("SelectorDeNiveles");
         }

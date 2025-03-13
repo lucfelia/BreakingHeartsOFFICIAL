@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public List<int> lvlsCompletados = new List<int>();
     public int lvlsUnblocked;
 
     void Awake() {
@@ -22,8 +23,16 @@ public class GameManager : MonoBehaviour
 
     public void CompleteLevel(int levelIndex)
     {
-        if (levelIndex + 1 > lvlsUnblocked) {
-            lvlsUnblocked = levelIndex + 1;
+        //Confirmar que lvl no se haya repetido
+        if (!lvlsCompletados.Contains(levelIndex)) {
+            lvlsCompletados.Add(levelIndex);
+
+            //Desbloquear lvl
+            if (levelIndex + 1 <= 3) {
+                if (levelIndex + 1 > lvlsUnblocked) {
+                    lvlsUnblocked = levelIndex + 1;
+                }
+            }
         }
     }
 }

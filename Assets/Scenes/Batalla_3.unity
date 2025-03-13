@@ -1754,7 +1754,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &400413513
@@ -2049,9 +2049,8 @@ MonoBehaviour:
   - {fileID: 425188243}
   beatDefault: {fileID: 728578785}
   curarDefault: {fileID: 1109388382}
-  attack1: {fileID: 2024464943}
-  attack2: {fileID: 7900465}
-  attack3: {fileID: 726045545}
+  attack2: {fileID: 726045545}
+  attack3: {fileID: 7900465}
   panel: {fileID: 1344304117}
   playingClassic: 0
   classicBeatGameplay:
