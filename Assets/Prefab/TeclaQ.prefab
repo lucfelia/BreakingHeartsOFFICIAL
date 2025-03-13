@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2433049956920009984}
   - component: {fileID: 72950578173647070}
   m_Layer: 0
-  m_Name: Q
+  m_Name: TeclaQ
   m_TagString: Tecla
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2219723430758377381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.4, y: 5.5, z: 0}
-  m_LocalScale: {x: 0.070266, y: 0.070266, z: 0.070266}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 32790edda474ec048a0c7f92cb619697, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b403a6ac8d596fc48b5be6bad7860108, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
