@@ -1667,6 +1667,8 @@ MonoBehaviour:
   targets:
   - {fileID: 0}
   - {fileID: 0}
+  targetIndex: 0
+  onNode: 0
 --- !u!4 &1967875469
 Transform:
   m_ObjectHideFlags: 0
@@ -1712,7 +1714,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c589d13481b8af24fa08dd954c31f7b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvlsUnblocked: 
+  lvlsCompletados: 
+  lvlsUnblocked: 0
 --- !u!4 &2092320649
 Transform:
   m_ObjectHideFlags: 0

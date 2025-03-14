@@ -30,8 +30,9 @@ public class MenuManager : MonoBehaviour {
         //panel
     public GameObject panel;
 
+    public GameObject EnemyBeat;
     //Gameplays
-        //Classic beat
+    //Classic beat
     public bool playingClassic = false;
     public GameObject[] classicBeatGameplay;
         //Nightcore beat
@@ -120,6 +121,7 @@ public class MenuManager : MonoBehaviour {
         panel.SetActive(true);
         menuInicial.SetActive(true);
         eventSystem.SetSelectedGameObject(inicioDefault);
+        EnemyBeat.SetActive(true);
     }
     public void AbrirMenuBeats()
     {
@@ -130,6 +132,7 @@ public class MenuManager : MonoBehaviour {
         escogiendoBeat = true;
         panel.SetActive(true);
         eventSystem.SetSelectedGameObject(beatDefault);
+        EnemyBeat.SetActive(true);
     }
     public void AbrirMenuClassicGameplay()
     {
@@ -140,6 +143,7 @@ public class MenuManager : MonoBehaviour {
         //activado:
         playingClassic = true;
         gameplayUI.SetActive(true);
+        EnemyBeat.SetActive(false);
     }
     public void AbrirMenuNightcoreGameplay()
     {
@@ -150,6 +154,7 @@ public class MenuManager : MonoBehaviour {
         //activado:
         playingNightcore = true;
         gameplayUI.SetActive(true);
+        EnemyBeat.SetActive(false);
     }
     public void AbrirMenuReggaetonGameplay()
     {
@@ -160,6 +165,7 @@ public class MenuManager : MonoBehaviour {
         //activado:
         playingReggaeton = true;
         gameplayUI.SetActive(true);
+        EnemyBeat.SetActive(false);
     }
     public void AbrirMenuContraataque()
     {
@@ -172,6 +178,7 @@ public class MenuManager : MonoBehaviour {
         curarGameplay.SetActive(false);
         //activado:
         playingContraataque = true;
+        EnemyBeat.SetActive(true);
     }
     public void AbrirMenuCurar()
     {
@@ -182,6 +189,7 @@ public class MenuManager : MonoBehaviour {
         playingContraataque = false;
         //activado:
         curarGameplay.SetActive(true);
+        EnemyBeat.SetActive(true);
     }
     public void AbrirMenuGameover()
     {        
@@ -191,11 +199,13 @@ public class MenuManager : MonoBehaviour {
         //activado:
         gameover.SetActive(true);
         eventSystem.SetSelectedGameObject(gameoverDefault);
+        EnemyBeat.SetActive(true);
     }
     public void ReiniciarNivel()
     {
         Debug.Log("[MenuManager.cs] - Reinicio");
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        EnemyBeat.SetActive(true);
     }
 }
