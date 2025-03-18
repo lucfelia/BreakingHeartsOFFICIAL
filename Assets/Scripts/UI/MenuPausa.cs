@@ -9,6 +9,7 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private GameObject PauseButton;
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject workInProgress;
+    [SerializeField] private GameObject ControlsworkInProgress;
     private bool PausedGame = false;
 
     private void Update()
@@ -23,6 +24,14 @@ public class MenuPausa : MonoBehaviour
             {
                 Pausa();
             }
+        }
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            ShowControls();
+        }
+        else if (Input.GetKeyUp(KeyCode.F1))
+        {
+            HideControls();
         }
     }
     public void Pausa()
@@ -69,5 +78,13 @@ public class MenuPausa : MonoBehaviour
         PauseButton.SetActive(true);
         PauseMenu.SetActive(true);
         workInProgress.SetActive(false);
+    }
+    public void ShowControls() 
+    {
+        ControlsworkInProgress.SetActive(true);
+    }
+    public void HideControls() 
+    {
+        ControlsworkInProgress.SetActive(false);
     }
 }
