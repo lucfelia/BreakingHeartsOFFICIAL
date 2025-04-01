@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Tambor : MonoBehaviour
@@ -9,7 +10,6 @@ public class Tambor : MonoBehaviour
 
     void Start()
     {
-        
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -18,6 +18,9 @@ public class Tambor : MonoBehaviour
         
         if (collision.CompareTag("Palo"))
         {
+
+
+
             Debug.Log("Drum Hit by Stick!");
             PlayHitSound();
             AnimateDrum();
