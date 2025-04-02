@@ -12,8 +12,8 @@ public class MenuPausa : MonoBehaviour
 
     public GameObject PauseButton;
     public GameObject PauseMenu;
-    public GameObject workInProgress;
-    public GameObject ControlsworkInProgress;
+    //public GameObject workInProgress;
+    //public GameObject ControlsworkInProgress;
     private bool PausedGame = false;
 
     private void Start()
@@ -46,15 +46,10 @@ public class MenuPausa : MonoBehaviour
         //    HideControls();
         //}
     }
-    private IEnumerator SelectedButton()
-    {
-        yield return new WaitForSeconds(0.5f); // Wait for sound to finish
-    }
 
     public void Pausa()
     {
         au.Play();
-        StartCoroutine(SelectedButton());
         eventSystem.SetSelectedGameObject(inicioDefault);
         PausedGame = true;
         Time.timeScale = 0f;
@@ -65,31 +60,43 @@ public class MenuPausa : MonoBehaviour
     public void Reanudar()
     {
         au.Play();
-        StartCoroutine(SelectedButton()); PausedGame = false;
+        PausedGame = false;
         Time.timeScale = 1f;
         PauseButton.SetActive(true);
         PauseMenu.SetActive(false);
     }
-    
+    private IEnumerator ResetGame()
+    {
+        yield return new WaitForSeconds(0.5f); // Wait for sound to finish
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     public void Reiniciar()
     {
         au.Play();
-        StartCoroutine(SelectedButton()); Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(ResetGame()); 
+        Time.timeScale = 1f;
     }
 
+    private IEnumerator ReturnLVL(string sceneName) {
+        yield return new WaitForSeconds(0.5f); // Wait for sound to finish
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneName);
+    }
     public void ReturnLevelSelector()
     {
-        au.Play();
-        StartCoroutine(SelectedButton()); Time.timeScale = 1f;
-        SceneManager.LoadScene("SelectorDeNiveles");
+        au.Play(); 
+        StartCoroutine(ReturnLVL("SelectorDeNiveles"));
     }
-
+    private IEnumerator Quit()
+    {
+        yield return new WaitForSeconds(0.5f); // Wait for sound to finish
+        Debug.Log("Cerrando juego");
+        Application.Quit();
+    }
     public void Cerrar()
     {
         au.Play();
-        StartCoroutine(SelectedButton()); Debug.Log("Cerrando juego");
-        Application.Quit();
+        StartCoroutine(Quit());
     }
     //public void OpenSettigns()
     //{

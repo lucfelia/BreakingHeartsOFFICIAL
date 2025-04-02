@@ -7,6 +7,7 @@ public class MenuInicial : MonoBehaviour
 {
     private EventSystem eventSystem;
     public GameObject inicioDefault;
+    public GameObject splashUI;
     private AudioSource au;
 
     private void Start()
@@ -14,29 +15,35 @@ public class MenuInicial : MonoBehaviour
         eventSystem = EventSystem.current;
         au = GetComponent<AudioSource>();
         eventSystem.SetSelectedGameObject(inicioDefault);
+        splashUI.SetActive(true);
     }
 
-    private IEnumerator ChangeSceneAfterSound(string sceneName)
+    private IEnumerator ChangeScene(string sceneName)
     {
-        yield return new WaitForSeconds(0.5f); // Wait for sound to finish
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
     }
 
     public void StartGame()
     {
         au.Play();
-        StartCoroutine(ChangeSceneAfterSound("SelectorDeNiveles"));
+        StartCoroutine(ChangeScene("SelectorDeNiveles"));
     }
-
-    public void Cerrar()
+    private IEnumerator QuitGame()
     {
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("Cerrando juego");
         Application.Quit();
+    }
+    public void Cerrar()
+    {
+        au.Play();
+        StartCoroutine(QuitGame());
     }
 
     public void OpenSettigns()
     {
-
+        au.Play();
     }
     public void CloseSettings()
     {
