@@ -4889,7 +4889,7 @@ MonoBehaviour:
   - {fileID: 1489564522661796344, guid: 67e1654a8e9568d41b26ee3134c3e503, type: 3}
   - {fileID: 7815014252410075160, guid: 70450fccf0296fb4e8906720742075c2, type: 3}
   - {fileID: 735568265065138407, guid: f18723d8c87eefb43964946f5c27927f, type: 3}
-  startTime: 0.5
+  startTime: 0.3333
   random: 0
 --- !u!212 &1163510983
 SpriteRenderer:
@@ -6078,7 +6078,7 @@ MonoBehaviour:
   - {fileID: 2285149227121681157, guid: f967074e576310147a0f236b5c511a9e, type: 3}
   - {fileID: 1440543722439166413, guid: f95550e62bc5d2045ae401b929530deb, type: 3}
   - {fileID: 9117127950998881800, guid: e540bb7a9ac84ba489da1eb877c732ac, type: 3}
-  startTime: 0.5
+  startTime: 0.6667
   random: 0
 --- !u!1 &1463093269
 GameObject:
