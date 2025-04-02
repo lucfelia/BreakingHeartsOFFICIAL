@@ -4,16 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class Cheats : MonoBehaviour
 {
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     void Start()
     {
 
             // Desbloquea todos los niveles y ataques al iniciar
-            GameManager.Instance.lvlsUnblocked = 10; // Número máximo de niveles
+            GameManager.Instance.lvlsUnblocked = 3; // Número máximo de niveles
             GameManager.Instance.lvlsCompletados = new List<int> { 0, 1, 2 }; // Niveles 1, 2, 3
         
     }

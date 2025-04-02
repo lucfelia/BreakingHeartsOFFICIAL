@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,14 +19,19 @@ public class LevelController : MonoBehaviour
 
     void Update()
     {
-        GameObject player = GameObject.Find("Player");
-        cameraController = player.GetComponent<CameraController>();
-        // Get the targetIndex from the CameraController
-        targetIndex = cameraController.targetIndex;
+        if (SceneManager.GetActiveScene().name == "SelectorDeNiveles")
+        {
+            GameObject player = GameObject.Find("Player");
+            cameraController = player.GetComponent<CameraController>();
+            // Get the targetIndex from the CameraController
+            targetIndex = cameraController.targetIndex;
 
-        if (cameraController.onNode && Input.GetKeyDown(KeyCode.Return)) {
-            if (targetIndex <= GameManager.Instance.lvlsUnblocked) {
-                SceneManager.LoadScene($"Batalla_{targetIndex + 1}");
+            if (cameraController.onNode && Input.GetKeyDown(KeyCode.Return))
+            {
+                if (targetIndex <= GameManager.Instance.lvlsUnblocked)
+                {
+                    SceneManager.LoadScene($"Batalla_{targetIndex + 1}");
+                }
             }
         }
     }

@@ -1,16 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MenuPausa : MonoBehaviour
 {
-    [SerializeField] private GameObject PauseButton;
-    [SerializeField] private GameObject PauseMenu;
-    [SerializeField] private GameObject workInProgress;
-    [SerializeField] private GameObject ControlsworkInProgress;
+    private EventSystem eventSystem;
+    public GameObject inicioDefault;
+
+    private AudioSource au;
+
+    public GameObject PauseButton;
+    public GameObject PauseMenu;
+    public GameObject workInProgress;
+    public GameObject ControlsworkInProgress;
     private bool PausedGame = false;
+
+    private void Start()
+    {
+        eventSystem = EventSystem.current;
+        au = GetComponent<AudioSource>();
+        PauseMenu.SetActive(false);
+        PauseButton.SetActive(true);
+    }
 
     private void Update()
     {
@@ -25,17 +37,25 @@ public class MenuPausa : MonoBehaviour
                 Pausa();
             }
         }
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            ShowControls();
-        }
-        else if (Input.GetKeyUp(KeyCode.F1))
-        {
-            HideControls();
-        }
+        //if (Input.GetKeyDown(KeyCode.F1))
+        //{
+        //    ShowControls();
+        //}
+        //else if (Input.GetKeyUp(KeyCode.F1))
+        //{
+        //    HideControls();
+        //}
     }
+    private IEnumerator SelectedButton()
+    {
+        yield return new WaitForSeconds(0.5f); // Wait for sound to finish
+    }
+
     public void Pausa()
     {
+        au.Play();
+        StartCoroutine(SelectedButton());
+        eventSystem.SetSelectedGameObject(inicioDefault);
         PausedGame = true;
         Time.timeScale = 0f;
         PauseButton.SetActive(false);
@@ -44,7 +64,8 @@ public class MenuPausa : MonoBehaviour
     
     public void Reanudar()
     {
-        PausedGame = false;
+        au.Play();
+        StartCoroutine(SelectedButton()); PausedGame = false;
         Time.timeScale = 1f;
         PauseButton.SetActive(true);
         PauseMenu.SetActive(false);
@@ -52,39 +73,42 @@ public class MenuPausa : MonoBehaviour
     
     public void Reiniciar()
     {
-        Time.timeScale = 1f;
+        au.Play();
+        StartCoroutine(SelectedButton()); Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ReturnLevelSelector()
     {
-        Time.timeScale = 1f;
+        au.Play();
+        StartCoroutine(SelectedButton()); Time.timeScale = 1f;
         SceneManager.LoadScene("SelectorDeNiveles");
     }
 
     public void Cerrar()
     {
-        Debug.Log("Cerrando juego");
+        au.Play();
+        StartCoroutine(SelectedButton()); Debug.Log("Cerrando juego");
         Application.Quit();
     }
-    public void OpenSettigns()
-    {
-        PauseButton.SetActive(false);
-        PauseMenu.SetActive(false);
-        workInProgress.SetActive(true);
-    }
-    public void CloseSettings()
-    {
-        PauseButton.SetActive(true);
-        PauseMenu.SetActive(true);
-        workInProgress.SetActive(false);
-    }
-    public void ShowControls() 
-    {
-        ControlsworkInProgress.SetActive(true);
-    }
-    public void HideControls() 
-    {
-        ControlsworkInProgress.SetActive(false);
-    }
+    //public void OpenSettigns()
+    //{
+    //    au.Play();
+    //    workInProgress.SetActive(true);
+    //}
+    //public void CloseSettings()
+    //{
+    //    au.Play();
+    //    workInProgress.SetActive(false);
+    //}
+    //public void ShowControls() 
+    //{
+    //    au.Play();
+    //    ControlsworkInProgress.SetActive(true);
+    //}
+    //public void HideControls() 
+    //{
+    //    au.Play();
+    //    ControlsworkInProgress.SetActive(false);
+    //}
 }
