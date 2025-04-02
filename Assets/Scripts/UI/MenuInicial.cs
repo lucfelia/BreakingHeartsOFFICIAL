@@ -8,6 +8,8 @@ public class MenuInicial : MonoBehaviour
     private EventSystem eventSystem;
     public GameObject inicioDefault;
     public GameObject splashUI;
+    public GameObject creditsUI;
+    public GameObject settingsUI;
     private AudioSource au;
 
     private void Start()
@@ -16,6 +18,8 @@ public class MenuInicial : MonoBehaviour
         au = GetComponent<AudioSource>();
         eventSystem.SetSelectedGameObject(inicioDefault);
         splashUI.SetActive(true);
+        settingsUI.SetActive(false);
+        creditsUI.SetActive(false);
     }
 
     private IEnumerator ChangeScene(string sceneName)
@@ -44,9 +48,21 @@ public class MenuInicial : MonoBehaviour
     public void OpenSettigns()
     {
         au.Play();
+        settingsUI.SetActive(true);
     }
-    public void CloseSettings()
-    {
 
+    public void OpenCredits()
+    {
+        au.Play();
+        creditsUI.SetActive(true);
+
+    }
+
+    public void ReturnMainMenu()
+    {
+        au.Play();
+        settingsUI.SetActive(false);
+        creditsUI.SetActive(false);
+        eventSystem.SetSelectedGameObject(inicioDefault);
     }
 }

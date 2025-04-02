@@ -46,7 +46,7 @@ public class LogicaPalos : MonoBehaviour
     {
         Debug.Log("Hit Tambor");
 
-        if (time <= 0.3f)
+        if (time <= beatTime - 3) 
         {
             GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
             HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Early");
@@ -54,7 +54,7 @@ public class LogicaPalos : MonoBehaviour
             playerLogic.text.text = "Score: " + playerLogic.score.ToString();
             Debug.Log("EARLY");
         }
-        else if (time >= 0.4f || time < 0.6f)
+        else if (time >= beatTime - 2 || time < beatTime + 2)
         {
             GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
             HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Excellent");

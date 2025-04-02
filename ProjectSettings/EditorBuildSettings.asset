@@ -16,8 +16,8 @@ EditorBuildSettings:
     guid: f29791c4c2795514a8b3e7335e85952a
   - enabled: 1
     path: Assets/Scenes/Batalla_2.unity
-    guid: 12230117ce76ac24a8ad955711ac26c2
+    guid: 4b267ef826c73ac4abe785f341366223
   - enabled: 1
     path: Assets/Scenes/Batalla_3.unity
-    guid: 456440ad696f8614eb75a4d39cb25e73
+    guid: c3f7a020e8c92af41bc116f1c5d77fdc
   m_configObjects: {}

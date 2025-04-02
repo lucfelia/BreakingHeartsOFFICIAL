@@ -87,6 +87,12 @@ public class MenuPausa : MonoBehaviour
         au.Play(); 
         StartCoroutine(ReturnLVL("SelectorDeNiveles"));
     }
+
+    public void TitleScreen()
+    {
+        au.Play();
+        StartCoroutine(ReturnLVL("TitleScreen"));
+    }
     private IEnumerator Quit()
     {
         yield return new WaitForSeconds(0.5f); // Wait for sound to finish
