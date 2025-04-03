@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class LevelController : MonoBehaviour
 {
     public static LevelController Instance { get; private set; }
-    public CameraController cameraController;
+    public PlayerController playerController;
 
     public int targetIndex;
 
@@ -22,11 +22,11 @@ public class LevelController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "SelectorDeNiveles")
         {
             GameObject player = GameObject.Find("Player");
-            cameraController = player.GetComponent<CameraController>();
-            // Get the targetIndex from the CameraController
-            targetIndex = cameraController.targetIndex;
+            playerController = player.GetComponent<PlayerController>();
+            // Get the targetIndex from the PlayerController
+            targetIndex = playerController.targetIndex;
 
-            if (cameraController.onNode && Input.GetKeyDown(KeyCode.Return))
+            if (playerController.onNode && Input.GetKeyDown(KeyCode.Return))
             {
                 if (targetIndex <= GameManager.Instance.lvlsUnblocked)
                 {

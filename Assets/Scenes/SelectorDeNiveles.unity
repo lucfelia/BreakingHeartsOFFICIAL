@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc3875f89161ed45af3f3bca6a2c319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraController: {fileID: 1844916729}
+  playerController: {fileID: 1844916731}
   targetIndex: 0
 --- !u!4 &1420342601
 Transform:
@@ -875,8 +875,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796533225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.07, z: -2.0841682}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 4, z: -2.084168}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1844916726}
@@ -923,7 +923,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: febdc6d418b49b748815c14087aff170, type: 3}
+  m_Sprite: {fileID: 21300000, guid: efd9d06e63144954faf147a301f35bd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -943,9 +943,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1844916726}
-  - component: {fileID: 1844916729}
+  - component: {fileID: 1844916731}
   - component: {fileID: 1844916727}
   - component: {fileID: 1844916728}
+  - component: {fileID: 1844916730}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1041,7 +1042,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &1844916729
+--- !u!95 &1844916730
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844916724}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e838aacb8ef2a8419c326fa62fd3342, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1844916731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1050,7 +1072,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1844916724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dabf5ef075205954d97aff209ec617d2, type: 3}
+  m_Script: {fileID: 11500000, guid: b0e8ef5c975a7be41a11d21a866d3b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   alpha: 6
@@ -1061,6 +1083,7 @@ MonoBehaviour:
   - {fileID: 1716279347}
   targetIndex: 0
   onNode: 0
+  spritePlayer: {fileID: 1796533227}
 --- !u!1 &1877591155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,13 +1356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alpha: 1
-  target: {fileID: 1957313385}
-  targets:
-  - {fileID: 1957313385}
-  - {fileID: 1430370286}
-  - {fileID: 1716279347}
-  targetIndex: 0
-  onNode: 0
+  target: {fileID: 1844916724}
 --- !u!4 &1967875469
 Transform:
   m_ObjectHideFlags: 0
