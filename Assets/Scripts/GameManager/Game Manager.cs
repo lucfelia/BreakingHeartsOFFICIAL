@@ -15,12 +15,6 @@ public class GameManager : MonoBehaviour
         else { Destroy(gameObject); }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        lvlsUnblocked = 0;
-    }
-
     public void CompleteLevel(int levelIndex)
     {
         //Confirmar que lvl no se haya repetido

@@ -4,12 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class Cheats : MonoBehaviour
 {
-
-    void Start()
-    {
-
-        
-    }
     void Update()
     {
         // Cheats para cambiar de nivel (ignora lvlsUnblocked)

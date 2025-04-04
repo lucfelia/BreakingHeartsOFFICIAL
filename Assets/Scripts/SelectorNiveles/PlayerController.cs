@@ -18,10 +18,12 @@ public class PlayerController : MonoBehaviour
     private string jumpTrigger = "Jump";
     private string idleTrigger = "Idle";
     public SpriteRenderer spritePlayer;
+    private AudioSource au;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        au = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -77,6 +79,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Plataform")) // Verifica si colisiona con la plataforma
         {
             animator.SetTrigger(jumpTrigger);
+            au.Play();
             onNode = false;
         }
     }
