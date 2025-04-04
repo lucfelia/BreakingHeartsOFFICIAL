@@ -4,12 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class Cheats : MonoBehaviour
 {
+
     void Start()
     {
 
-            // Desbloquea todos los niveles y ataques al iniciar
-            GameManager.Instance.lvlsUnblocked = 3; // Número máximo de niveles
-            GameManager.Instance.lvlsCompletados = new List<int> { 0, 1, 2 }; // Niveles 1, 2, 3
         
     }
     void Update()
@@ -21,10 +19,14 @@ public class Cheats : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.F2))
         {
+            GameManager.Instance.lvlsUnblocked = 2;
+            GameManager.Instance.lvlsCompletados = new List<int> { 0 };
             SceneManager.LoadScene("Batalla_2");
         }
         else if (Input.GetKeyDown(KeyCode.F3))
         {
+            GameManager.Instance.lvlsCompletados = new List<int> { 0, 1};
+            GameManager.Instance.lvlsUnblocked = 3;
             SceneManager.LoadScene("Batalla_3");
         }
         // Cheat para reiniciar nivel

@@ -2771,10 +2771,10 @@ GameObject:
   - component: {fileID: 656562134}
   - component: {fileID: 656562133}
   - component: {fileID: 656562132}
-  - component: {fileID: 656562131}
+  - component: {fileID: 656562135}
   m_Layer: 0
   m_Name: paloDerecha
-  m_TagString: Untagged
+  m_TagString: Palo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2786,32 +2786,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656562129}
-  m_LocalRotation: {x: 0, y: 0, z: 0.60876137, w: 0.7933534}
-  m_LocalPosition: {x: 8.75, y: -1.45, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 8.73, y: 1.19, z: 0}
   m_LocalScale: {x: 2.21, y: 2.21, z: 2.21}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 619742195}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 75}
---- !u!114 &656562131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656562129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d99e2c361688ff74b91fc3d5ba495cdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beatTime: 0.5
-  time: 0
-  playerLogic: {fileID: 0}
-  hitTextPrefab: {fileID: 3891126095502582865, guid: 4e4e65373d365614bb0ad3126e65a769, type: 3}
-  textHolder: {fileID: 0}
-  Beat_Area: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &656562132
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2936,6 +2918,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &656562135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656562129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5fba86664832234bb7efb7c593dc586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  hitDistance: 2
+  isLeftStick: 0
+  playerLogic: {fileID: 1409075450}
+  hitTextPrefab: {fileID: 3891126095502582865, guid: 4e4e65373d365614bb0ad3126e65a769, type: 3}
+  textHolder: {fileID: 253821811}
+  Beat_Area: {fileID: 1409075448}
 --- !u!1 &680380999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,10 +3652,10 @@ GameObject:
   - component: {fileID: 743888922}
   - component: {fileID: 743888921}
   - component: {fileID: 743888920}
-  - component: {fileID: 743888919}
+  - component: {fileID: 743888923}
   m_Layer: 0
   m_Name: paloIzquireda
-  m_TagString: Untagged
+  m_TagString: Palo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3666,32 +3667,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743888917}
-  m_LocalRotation: {x: 0, y: 0, z: -0.6175164, w: 0.78655803}
-  m_LocalPosition: {x: -8.68, y: -1.46, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -8.76, y: 1.01, z: 0}
   m_LocalScale: {x: 2.21, y: 2.21, z: 2.21}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 619742195}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -76.27}
---- !u!114 &743888919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743888917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d99e2c361688ff74b91fc3d5ba495cdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beatTime: 0.5
-  time: 0
-  playerLogic: {fileID: 0}
-  hitTextPrefab: {fileID: 3891126095502582865, guid: 4e4e65373d365614bb0ad3126e65a769, type: 3}
-  textHolder: {fileID: 0}
-  Beat_Area: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!50 &743888920
 Rigidbody2D:
   serializedVersion: 4
@@ -3816,6 +3799,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &743888923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743888917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5fba86664832234bb7efb7c593dc586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  hitDistance: 2
+  isLeftStick: 1
+  playerLogic: {fileID: 1409075450}
+  hitTextPrefab: {fileID: 3891126095502582865, guid: 4e4e65373d365614bb0ad3126e65a769, type: 3}
+  textHolder: {fileID: 253821811}
+  Beat_Area: {fileID: 1409075448}
 --- !u!1 &747789699
 GameObject:
   m_ObjectHideFlags: 0
@@ -5600,7 +5602,7 @@ GameObject:
   - component: {fileID: 1409075450}
   m_Layer: 0
   m_Name: BeatReg
-  m_TagString: Player
+  m_TagString: Tambor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
