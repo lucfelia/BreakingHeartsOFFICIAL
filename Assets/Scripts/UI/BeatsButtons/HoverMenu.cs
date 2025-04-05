@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class HoverMenu : MonoBehaviour, ISelectHandler, IDeselectHandler
+public class HoverMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     //public GameObject infoPanel;
     private Animator animator;
@@ -14,14 +14,14 @@ public class HoverMenu : MonoBehaviour, ISelectHandler, IDeselectHandler
         originalScale = transform.localScale;
     }
 
-    public void OnSelect(BaseEventData eventData) 
+    public void OnPointerEnter(PointerEventData eventData)
     {
         BringToFront();
         animator.ResetTrigger("Selected");
         animator.SetTrigger("Selected"); // Play animation
     }
-
-    public void OnDeselect(BaseEventData eventData) { 
+    public void OnPointerExit(PointerEventData eventData)
+    {
         //infoPanel.SetActive(false);
         animator.ResetTrigger("Finished");
         animator.SetTrigger("Finished");

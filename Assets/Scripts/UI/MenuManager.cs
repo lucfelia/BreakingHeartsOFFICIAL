@@ -51,9 +51,12 @@ public class MenuManager : MonoBehaviour {
     public GameObject gameover;
     public GameObject gameoverDefault;
 
+    //Sound
+    private AudioSource au;
+
     private void Start()
     {
-
+        au = GetComponent<AudioSource>();
         //activado:
         panel.SetActive(true);
         menuInicial.SetActive(true);
@@ -111,6 +114,7 @@ public class MenuManager : MonoBehaviour {
 
     public void AbrirMenuInicial()
     {
+        au.Play();
         Debug.Log("[MenuManager.cs] - Inicio");
         //desactivado:
         escogiendoBeat = false;
@@ -124,6 +128,7 @@ public class MenuManager : MonoBehaviour {
     }
     public void AbrirMenuBeats()
     {
+        au.Play();
         Debug.Log("[MenuManager.cs] - Elegir Beat");
         //desactivado:
         menuInicial.SetActive(false);
@@ -135,6 +140,7 @@ public class MenuManager : MonoBehaviour {
     }
     public void AbrirMenuClassicGameplay()
     {
+        au.Play();
         Debug.Log("[MenuManager.cs] - Classic Gameplay");
         //desactivado:
         panel.SetActive(false);
@@ -146,6 +152,7 @@ public class MenuManager : MonoBehaviour {
     }
     public void AbrirMenuNightcoreGameplay()
     {
+        au.Play();
         Debug.Log("[MenuManager.cs] - Nightcore Gameplay");
         //desactivado:
         panel.SetActive(false);
@@ -157,6 +164,7 @@ public class MenuManager : MonoBehaviour {
     }
     public void AbrirMenuReggaetonGameplay()
     {
+        au.Play();
         Debug.Log("[MenuManager.cs] - Reggaeton Gameplay");
         //desactivado:
         panel.SetActive(false);
@@ -202,6 +210,7 @@ public class MenuManager : MonoBehaviour {
     }
     public void ReiniciarNivel()
     {
+        au.Play();
         Debug.Log("[MenuManager.cs] - Reinicio");
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
