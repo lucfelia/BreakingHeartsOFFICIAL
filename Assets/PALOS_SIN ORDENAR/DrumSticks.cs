@@ -20,10 +20,6 @@ public class DrumSticks : MonoBehaviour
     void Start()
     {
         originalPosition = transform.position;
-        textHolder = GameObject.Find("EstadoTextHolder");
-        if (textHolder != null) { Debug.Log("TextHolderDetected"); }
-        Beat_Area = GameObject.Find("Beat_Area");
-        if (Beat_Area != null) { playerLogic = Beat_Area.GetComponent<LogicaJugador>(); }
     }
 
     void Update()

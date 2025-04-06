@@ -1,11 +1,9 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
     //Event system
-    public EventSystem eventSystem;
     public VidaJugador vidaJugador;
 
     //Nivel
@@ -60,7 +58,6 @@ public class MenuManager : MonoBehaviour {
         //activado:
         panel.SetActive(true);
         menuInicial.SetActive(true);
-        eventSystem.SetSelectedGameObject(inicioDefault);
         //desactivado:
         curarDefault.interactable = puedocurar;
         escogiendoBeat = false;
@@ -77,7 +74,6 @@ public class MenuManager : MonoBehaviour {
     {
         attack2.interactable = GameManager.Instance.lvlsCompletados.Contains(0);
         attack3.interactable = GameManager.Instance.lvlsCompletados.Contains(1);
-        ForceEventSystemToValidButton();
 
         if (vidaJugador.vidaActual == vidaJugador.vidaMax) { puedocurar = false; }
         else { puedocurar = true; }
@@ -97,19 +93,6 @@ public class MenuManager : MonoBehaviour {
 
         if (playingContraataque) { foreach (GameObject contraataque in contraataqueGameplay) contraataque.SetActive(true); } 
         else { foreach (GameObject contraataque in contraataqueGameplay) contraataque.SetActive(false); }
-        
-    }
-    void ForceEventSystemToValidButton() {
-        GameObject currentSelected = EventSystem.current.currentSelectedGameObject;
-
-        if (currentSelected == null || !currentSelected.GetComponent<Button>().interactable) {
-            if (attack2.interactable) {
-                EventSystem.current.SetSelectedGameObject(attack2.gameObject);
-            }
-            else if (attack3.interactable) {
-                EventSystem.current.SetSelectedGameObject(attack3.gameObject);
-            }
-        }
     }
 
     public void AbrirMenuInicial()
@@ -123,7 +106,6 @@ public class MenuManager : MonoBehaviour {
         //activado:
         panel.SetActive(true);
         menuInicial.SetActive(true);
-        eventSystem.SetSelectedGameObject(inicioDefault);
         EnemyBeat.SetActive(true);
     }
     public void AbrirMenuBeats()
@@ -135,7 +117,6 @@ public class MenuManager : MonoBehaviour {
         //activado:
         escogiendoBeat = true;
         panel.SetActive(true);
-        eventSystem.SetSelectedGameObject(beatDefault);
         EnemyBeat.SetActive(true);
     }
     public void AbrirMenuClassicGameplay()
@@ -205,7 +186,6 @@ public class MenuManager : MonoBehaviour {
         Time.timeScale = 0;
         //activado:
         gameover.SetActive(true);
-        eventSystem.SetSelectedGameObject(gameoverDefault);
         EnemyBeat.SetActive(true);
     }
     public void ReiniciarNivel()

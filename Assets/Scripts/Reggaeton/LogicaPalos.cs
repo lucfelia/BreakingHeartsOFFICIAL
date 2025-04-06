@@ -7,7 +7,7 @@ public class LogicaPalos : MonoBehaviour
 {
 
     float smooth = 50.0f;
-    float tiltAngle = 79.63f;
+    float tiltAngle = 75f;
     public float beatTime = 0.10f;
     public float time = 0f;
     public LogicaJugador playerLogic;
