@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         au = GetComponent<AudioSource>();
+
+        transform.position = GameManager.Instance.GetSavedPosition();
+        SetTargetIndex(GameManager.Instance.GetSavedTargetIndex());
     }
 
     void Update() {
@@ -45,6 +48,7 @@ public class PlayerController : MonoBehaviour
             }
             target = targets[targetIndex];
         }
+        GameManager.Instance.SavePlayerData(transform.position, targetIndex);
     }
 
     void FixedUpdate() {
@@ -81,6 +85,15 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger(jumpTrigger);
             au.Play();
             onNode = false;
+        }
+    }
+    public void SetTargetIndex(int index)
+    {
+        targetIndex = index;
+
+        if (targetIndex >= 0 && targetIndex < targets.Count)
+        {
+            target = targets[targetIndex];
         }
     }
 }

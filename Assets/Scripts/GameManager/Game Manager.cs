@@ -1,11 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public List<int> lvlsCompletados = new List<int>();
     public int lvlsUnblocked;
+
+    public Vector2 guardarPosJugador = Vector2.zero;
+    public int guardarTargetIndex = 0;
 
     void Awake() {
         if (Instance == null) {
@@ -28,5 +32,31 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+    public void SavePlayerData(Vector2 position, int targetIndex)
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene == "SelectorDeNiveles")
+        {
+            guardarPosJugador = position;
+            guardarTargetIndex = targetIndex;
+        }
+    }
+
+    public Vector2 GetSavedPosition()
+    {
+        string scene = SceneManager.GetActiveScene().name;
+        if (scene == "SelectorDeNiveles")
+            return guardarPosJugador;
+        return Vector2.zero;
+    }
+
+    public int GetSavedTargetIndex()
+    {
+        string scene = SceneManager.GetActiveScene().name;
+        if (scene == "SelectorDeNiveles")
+            return guardarTargetIndex;
+        return 0;
     }
 }
