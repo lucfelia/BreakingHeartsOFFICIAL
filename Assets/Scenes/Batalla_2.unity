@@ -2007,7 +2007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72545f23dfd1d0445a06c72c391f3bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventSystem: {fileID: 290195262}
   vidaJugador: {fileID: 425786565}
   menuInicial: {fileID: 332105225}
   inicioDefault: {fileID: 1794459525}
@@ -3617,9 +3616,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1861794754516568076, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Cerrar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2582600752650511460, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnLevelSelector
+      objectReference: {fileID: 0}
     - target: {fileID: 3183625377066447114, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032262401348891858, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
+      propertyPath: m_text
+      value: Select Level
       objectReference: {fileID: 0}
     - target: {fileID: 4723265022459502612, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
       propertyPath: m_Pivot.x
