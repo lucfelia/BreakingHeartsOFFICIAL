@@ -15,6 +15,7 @@ public class HoverDeVideos : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     void Start()
     {
         hoverPanel.SetActive(false);
+        player.SetDirectAudioMute(0, true);
 
     }
 
