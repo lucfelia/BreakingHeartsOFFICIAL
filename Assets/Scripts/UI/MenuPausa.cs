@@ -67,12 +67,15 @@ public class MenuPausa : MonoBehaviour
     }
     private IEnumerator ResetGame()
     {
-        yield return new WaitForSeconds(0.5f); // Wait for sound to finish
+        yield return new WaitForSeconds(0.5f); // Wait for sound to finish        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Reiniciar()
     {
-        au.Play();
+        au.Play();       
+        PausedGame = false;
+        PauseButton.SetActive(true);
+        PauseMenu.SetActive(false);
         StartCoroutine(ResetGame()); 
         Time.timeScale = 1f;
     }
@@ -85,12 +88,20 @@ public class MenuPausa : MonoBehaviour
     public void ReturnLevelSelector()
     {
         au.Play(); 
+                Time.timeScale = 1f;
+        PauseButton.SetActive(true);
+        PauseMenu.SetActive(false);
+        PausedGame = false;
         StartCoroutine(ReturnLVL("SelectorDeNiveles"));
     }
 
     public void TitleScreen()
     {
         au.Play();
+                Time.timeScale = 1f;
+        PauseButton.SetActive(true);
+        PauseMenu.SetActive(false);
+        PausedGame = false;
         StartCoroutine(ReturnLVL("TitleScreen"));
     }
     private IEnumerator Quit()
@@ -102,6 +113,10 @@ public class MenuPausa : MonoBehaviour
     public void Cerrar()
     {
         au.Play();
+                Time.timeScale = 1f;
+        PauseButton.SetActive(true);
+        PauseMenu.SetActive(false);
+        PausedGame = false;
         StartCoroutine(Quit());
     }
     //public void OpenSettigns()
