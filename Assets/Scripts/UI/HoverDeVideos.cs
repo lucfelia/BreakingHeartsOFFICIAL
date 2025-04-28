@@ -10,7 +10,7 @@ public class HoverDeVideos : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public GameObject hoverPanel;
     public VideoPlayer player;
-    public Button curarDefault;
+    public Button botonDefault;
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class HoverDeVideos : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(curarDefault.interactable == true)
+        if(botonDefault.interactable == true)
         {
         hoverPanel.SetActive(true);
         player.Play();
@@ -32,10 +32,9 @@ public class HoverDeVideos : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if(curarDefault.interactable == true)
-        {
+        
         hoverPanel.SetActive(false);
         player.Stop();
-        }
+        
     }
 }
