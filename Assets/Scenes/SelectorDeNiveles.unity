@@ -1831,7 +1831,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3183625377066447114, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4723265022459502612, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
       propertyPath: m_Pivot.x
@@ -1915,6 +1915,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723265022459502612, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897161497142616220, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: f9c7471dde072b049b99f64eb9d7c996, type: 2}
+    - target: {fileID: 5897161497142616220, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3151809832851628069, guid: f9c7471dde072b049b99f64eb9d7c996, type: 2}
+    - target: {fileID: 5897161497142616220, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6482767148612425423, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
