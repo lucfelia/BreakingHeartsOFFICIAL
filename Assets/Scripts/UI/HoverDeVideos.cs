@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Video;
 using UnityEngine.UI;
 
-public class HoverDeVideos : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class HoverDeVideos : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-
     public GameObject hoverPanel;
     public VideoPlayer player;
     public Button botonDefault;
@@ -16,7 +13,6 @@ public class HoverDeVideos : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         hoverPanel.SetActive(false);
         player.SetDirectAudioMute(0, true);
-
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -26,15 +22,17 @@ public class HoverDeVideos : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         hoverPanel.SetActive(true);
         player.Play();
         }
-
     }
-
 
     public void OnPointerExit(PointerEventData eventData)
     {
         
         hoverPanel.SetActive(false);
         player.Stop();
-        
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        hoverPanel.SetActive(false);
+        player.Stop();
     }
 }

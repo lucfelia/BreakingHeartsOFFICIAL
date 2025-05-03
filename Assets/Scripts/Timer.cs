@@ -13,6 +13,7 @@ public class Timer : MonoBehaviour
     public float timeStop = 10f;
     public float timeMenu = 12.5f;
     public float timeHeal = 5f;
+    private float timeAviso = 3f;
 
     private GameObject canvas;
     private MenuManager menuManager;
@@ -31,25 +32,30 @@ public class Timer : MonoBehaviour
         canvas = GameObject.Find("Canvas");
         if (canvas != null) menuManager = canvas.GetComponent<MenuManager>();
     }
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
     {
-        if (menuManager.playingClassic) {
-            if (timer >= timeStop) {
+        if (menuManager.playingClassic)
+        {
+            if (timer >= timeStop)
+            {
                 generadorLofi.SetActive(false);
             }
-            if (timer >= timeMenu) {
+            if (timer >= timeMenu)
+            {
                 timer = 0f;
-                menuManager.AbrirMenuContraataque();
+                menuManager.AbrirMenuAviso();
                 generadorLofi.SetActive(true);
             }
             timer += Time.deltaTime;
         }
-        if (menuManager.playingNightcore) {
+        if (menuManager.playingNightcore)
+        {
             if (timer >= timeStop) { generadorNightCore.SetActive(false); }
-            if (timer >= timeMenu) {
+            if (timer >= timeMenu)
+            {
                 timer = 0f;
-                menuManager.AbrirMenuContraataque();
+                menuManager.AbrirMenuAviso();
                 generadorNightCore.SetActive(true);
             }
             timer += Time.deltaTime;
@@ -60,24 +66,37 @@ public class Timer : MonoBehaviour
             if (timer >= timeMenu)
             {
                 timer = 0f;
-                menuManager.AbrirMenuContraataque();                
+                menuManager.AbrirMenuAviso();
             }
             timer += Time.deltaTime;
         }
-        if (menuManager.curarGameplay.activeSelf) {          
-            if (timer >= timeHeal) {                
+        if (menuManager.curarGameplay.activeSelf)
+        {
+            if (timer >= timeHeal)
+            {
                 timer = 0f;
-                menuManager.AbrirMenuContraataque();   
+                menuManager.AbrirMenuAviso();
             }
-            if (vidaJugador.vidaActual == vidaJugador.vidaMax) {
+            if (vidaJugador.vidaActual == vidaJugador.vidaMax)
+            {
                 timer = 0f;
                 healed += Time.deltaTime;
-                if (healed >= timeEnemy) {
+                if (healed >= timeEnemy)
+                {
                     Debug.Log("Healed timer off");
-                    timer = 0f; 
-                    healed = 0f; 
-                    menuManager.AbrirMenuContraataque(); 
+                    timer = 0f;
+                    healed = 0f;
+                    menuManager.AbrirMenuAviso();
                 }
+            }
+            timer += Time.deltaTime;
+        }
+        if (menuManager.warningContraataque.activeSelf)
+        {
+            if (timer >= timeAviso)
+            {
+                timer = 0f;
+                menuManager.AbrirMenuContraataque();
             }
             timer += Time.deltaTime;
         }

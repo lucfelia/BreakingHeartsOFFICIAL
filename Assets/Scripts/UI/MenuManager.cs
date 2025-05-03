@@ -39,6 +39,7 @@ public class MenuManager : MonoBehaviour {
     public bool playingReggaeton = false;
     public GameObject[] reggaetonBeatGameplay;
         //Contraataque beat
+    public GameObject warningContraataque;
     public bool playingContraataque = false;
     public GameObject[] contraataqueGameplay;
 
@@ -92,8 +93,7 @@ public class MenuManager : MonoBehaviour {
         else { foreach (GameObject beat in menuBeats) beat.SetActive(false); }
 
         if (playingContraataque) { foreach (GameObject contraataque in contraataqueGameplay) contraataque.SetActive(true); } 
-        else { foreach (GameObject contraataque in contraataqueGameplay) contraataque.SetActive(false); }
-    }
+        else { foreach (GameObject contraataque in contraataqueGameplay) contraataque.SetActive(false); }   }
 
     public void AbrirMenuInicial()
     {
@@ -155,18 +155,29 @@ public class MenuManager : MonoBehaviour {
         gameplayUI.SetActive(true);
         EnemyBeat.SetActive(false);
     }
-    public void AbrirMenuContraataque()
+
+    public void AbrirMenuAviso()
     {
-        Debug.Log("[MenuManager.cs] - Contraataque");
+        Debug.Log("[MenuManager.cs] - Aviso de contraataque!");
         //desactivado:
         playingClassic = false;
         playingReggaeton = false;
         playingNightcore = false;
         gameplayUI.SetActive(false);
         curarGameplay.SetActive(false);
+        playingContraataque = false;
+        //activado:
+        EnemyBeat.SetActive(true);
+        warningContraataque.SetActive(true);
+    }
+
+    public void AbrirMenuContraataque()
+    {
+        Debug.Log("[MenuManager.cs] - Contraataque");
+        //desactivado:
+        warningContraataque.SetActive(false);
         //activado:
         playingContraataque = true;
-        EnemyBeat.SetActive(true);
     }
     public void AbrirMenuCurar()
     {
