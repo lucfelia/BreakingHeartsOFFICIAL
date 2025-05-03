@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TurnoEnemigo : MonoBehaviour
 {
+    private PauseManager pauseManager;
     public VidaJugador VidaJugador;
     private GameObject canvas;
     private MenuManager menuManager;
@@ -22,6 +23,7 @@ public class TurnoEnemigo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pauseManager = FindObjectOfType<PauseManager>();
         contadorSize = contadorText.fontSize;
 
         teclas[0].SetActive(false);
@@ -42,8 +44,12 @@ public class TurnoEnemigo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (menuManager.playingContraataque) {
 
+            pauseManager.PauseForSeconds(3);
+
+            
             contadorText.text = combocontra.ToString();
             //Defensa
             if (combocontra > 7 && combocontra < 10) contadorText.color = Color.Lerp(Color.white, new Color(1.5f, 0.25f, 0f), 1f); //naranja
