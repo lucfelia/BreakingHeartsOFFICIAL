@@ -11,9 +11,13 @@ public class MenuInicial : MonoBehaviour
     public GameObject creditsUI;
     public GameObject settingsUI;
     private AudioSource au;
+    public Animator anim;
+    private string idle = "Idle";
+    private string a1 = "Animation";
 
     private void Start()
     {
+        anim.SetTrigger(idle);
         eventSystem = EventSystem.current;
         au = GetComponent<AudioSource>();
         eventSystem.SetSelectedGameObject(inicioDefault);
@@ -22,17 +26,16 @@ public class MenuInicial : MonoBehaviour
         creditsUI.SetActive(false);
     }
 
-    private IEnumerator ChangeScene(string sceneName)
-    {
-        yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(sceneName);
+    public void PlayA1() {
+        au.Play();
+        anim.SetTrigger(a1);
     }
 
     public void StartGame()
     {
-        au.Play();
-        StartCoroutine(ChangeScene("SelectorDeNiveles"));
+        SceneManager.LoadScene("SelectorDeNiveles");
     }
+
     private IEnumerator QuitGame()
     {
         yield return new WaitForSeconds(0.5f);
