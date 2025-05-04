@@ -12,9 +12,9 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         // Cargar valores guardados
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.25f);
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.50f);
         sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.35f);
-        voiceSlider.value = PlayerPrefs.GetFloat("VoiceVolume", 0.50f);
+        voiceSlider.value = PlayerPrefs.GetFloat("VoiceVolume", 0.25f);
 
         SetMusicVolume(musicSlider.value);
         SetSFXVolume(sfxSlider.value);

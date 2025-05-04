@@ -1,18 +1,17 @@
 using UnityEngine;
 
-public class SpriteChangeLvls : MonoBehaviour
+public class SpriteZackChangeLvls : MonoBehaviour
 {
-    private SpriteRenderer spritePlayer;
-    public Sprite spriteBloqueado;
-    public Sprite spriteDesbloqueado;
-    public Sprite spriteJugado;
+    public Vector3 pos1lvl = Vector3.zero;
+    public Vector3 pos2lvl = Vector3.zero;
+    public Vector3 pos3lvl = Vector3.zero;
+
     public int lvlDeDesbloqueo;
 
     // Start is called before the first frame update
     void Start()
     {
-        spritePlayer = GetComponent<SpriteRenderer>();
-        spritePlayer.sprite = spriteBloqueado;
+        transform.position = pos1lvl;
     }
 
     // Update is called once per frame
@@ -20,14 +19,14 @@ public class SpriteChangeLvls : MonoBehaviour
     {
         if (GameManager.Instance.lvlsUnblocked < lvlDeDesbloqueo)
         {
-            spritePlayer.sprite = spriteBloqueado;
+            transform.position = pos1lvl;
         }
         if (GameManager.Instance.lvlsUnblocked == lvlDeDesbloqueo) {
-            spritePlayer.sprite = spriteDesbloqueado;
+            transform.position = pos2lvl;
         }
         if (GameManager.Instance.lvlsUnblocked > lvlDeDesbloqueo)
         {
-            spritePlayer.sprite = spriteJugado;
+            transform.position = pos3lvl;
         }
     }
 }
