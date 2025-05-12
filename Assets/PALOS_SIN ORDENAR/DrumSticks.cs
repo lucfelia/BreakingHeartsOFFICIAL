@@ -12,6 +12,7 @@ public class DrumSticks : MonoBehaviour
     private Vector3 originalPosition;
     private bool hitDown = false;
     private bool hitUp = false;
+    private bool alreadyHit = false;
 
     public LogicaJugador playerLogic;
     public GameObject hitTextPrefab, textHolder;
@@ -20,6 +21,7 @@ public class DrumSticks : MonoBehaviour
     void Start()
     {
         originalPosition = transform.position;
+        alreadyHit = false;
     }
 
     void Update()
@@ -56,12 +58,25 @@ public class DrumSticks : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Tambor"))
+        if (collision.CompareTag("Tambor") && alreadyHit == false)
         {
+            alreadyHit = true;
             GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
             HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Perfect");
             playerLogic.score += 4;
             playerLogic.text.text = "Score: " + playerLogic.score.ToString();
+        }
+        else if(collision.CompareTag("Reset") && alreadyHit == true)
+        {
+            alreadyHit= false;
+        }
+        else if(collision.CompareTag("Tambor") && alreadyHit == true)
+        {
+            GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
+            HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Invalid");
+            playerLogic.score -= 4;
+            playerLogic.text.text = "Score: " + playerLogic.score.ToString();
+            alreadyHit = false;
         }
     }
 
