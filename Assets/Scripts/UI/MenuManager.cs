@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour {
     public GameObject menuInicial;
     public GameObject inicioDefault;
     public GameObject gameplayUI;
+    public GameObject textoPelea;
         //Beats
     public bool escogiendoBeat = false;
     public GameObject[] menuBeats;
@@ -57,9 +58,12 @@ public class MenuManager : MonoBehaviour {
     {
         au = GetComponent<AudioSource>();
         //activado:
-        panel.SetActive(true);
-        menuInicial.SetActive(true);
+
+        textoPelea.SetActive(true);
+
         //desactivado:
+        panel.SetActive(false);
+        menuInicial.SetActive(false);
         curarDefault.interactable = puedocurar;
         escogiendoBeat = false;
         playingClassic = false;
@@ -73,6 +77,7 @@ public class MenuManager : MonoBehaviour {
     }
     private void Update()
     {
+
         attack2.interactable = GameManager.Instance.lvlsCompletados.Contains(0);
         attack3.interactable = GameManager.Instance.lvlsCompletados.Contains(1);
 
@@ -199,6 +204,18 @@ public class MenuManager : MonoBehaviour {
         gameover.SetActive(true);
         EnemyBeat.SetActive(true);
     }
+
+    public void AbrirTextoPelea()
+    {
+
+        panel.SetActive(false);
+        menuInicial.SetActive(false);
+        playingContraataque = false;
+
+        textoPelea.SetActive(true);
+
+    }
+
     public void ReiniciarNivel()
     {
         au.Play();
