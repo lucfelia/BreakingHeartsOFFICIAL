@@ -24,13 +24,15 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         au = GetComponent<AudioSource>();
-
-        transform.position = GameManager.Instance.GetSavedPosition();
+        currentPosition = transform.position;
+        currentPosition = GameManager.Instance.GetSavedPosition();
         SetTargetIndex(GameManager.Instance.GetSavedTargetIndex());
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) {
+        //Si se pulsa tecla derecha o arriba se suma el indice
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) 
+            || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) {
             spritePlayer.flipX = false;
             targetIndex++;
             if (targetIndex >= GameManager.Instance.lvlsUnblocked)
@@ -39,7 +41,9 @@ public class PlayerController : MonoBehaviour
             }
             target = targets[targetIndex];
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) {
+        //Si se pulsa tecla izquierda o abajo se resta el indice
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) 
+            || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) {
             spritePlayer.flipX = true;
             targetIndex--;
             if (targetIndex < 0)

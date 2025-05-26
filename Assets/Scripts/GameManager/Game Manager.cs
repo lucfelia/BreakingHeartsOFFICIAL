@@ -6,9 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public List<int> lvlsCompletados = new List<int>();
-    public int lvlsUnblocked;
+    public int lvlsUnblocked = 1;
 
-    public Vector2 guardarPosJugador = Vector2.zero;
+    public Vector2 guardarPosJugador = new Vector2(-12f, -1.5f);
     public int guardarTargetIndex = 0;
 
     void Awake() {
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
             lvlsCompletados.Add(levelIndex);
 
             //Desbloquear lvl
-            if (levelIndex + 1 <= 3) {
+            if (levelIndex + 1 <= 4) {
                 if (levelIndex + 1 > lvlsUnblocked) {
                     lvlsUnblocked = levelIndex + 1;
                 }

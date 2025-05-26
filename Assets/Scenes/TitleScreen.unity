@@ -7634,7 +7634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvlsCompletados: 
-  lvlsUnblocked: 0
+  lvlsUnblocked: 1
   guardarPosJugador: {x: -5.642588, y: -1.749362}
   guardarTargetIndex: 0
 --- !u!4 &2092320649

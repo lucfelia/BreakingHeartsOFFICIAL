@@ -13,14 +13,14 @@ public class Cheats : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.F2))
         {
-            GameManager.Instance.lvlsUnblocked = 2;
+            GameManager.Instance.lvlsUnblocked = 1;
             GameManager.Instance.lvlsCompletados = new List<int> { 0 };
             SceneManager.LoadScene("Batalla_2");
         }
         else if (Input.GetKeyDown(KeyCode.F3))
         {
             GameManager.Instance.lvlsCompletados = new List<int> { 0, 1};
-            GameManager.Instance.lvlsUnblocked = 3;
+            GameManager.Instance.lvlsUnblocked = 2;
             SceneManager.LoadScene("Batalla_3");
         }
         // Cheat para reiniciar nivel

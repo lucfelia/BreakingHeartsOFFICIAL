@@ -78,8 +78,8 @@ public class MenuManager : MonoBehaviour {
     private void Update()
     {
 
-        attack2.interactable = GameManager.Instance.lvlsCompletados.Contains(0);
-        attack3.interactable = GameManager.Instance.lvlsCompletados.Contains(1);
+        attack2.interactable = GameManager.Instance.lvlsCompletados.Contains(1);
+        attack3.interactable = GameManager.Instance.lvlsCompletados.Contains(2);
 
         if (vidaJugador.vidaActual == vidaJugador.vidaMax) { puedocurar = false; }
         else { puedocurar = true; }
