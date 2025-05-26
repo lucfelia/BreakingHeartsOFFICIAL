@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class LogicaTeclaLeft : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class LogicaTeclaLeft : MonoBehaviour
     public GameObject Beat_Area;
     public LogicaJugador playerLogic;
     public GameObject hitTextPrefab, textHolder;
+    public GameObject menuManager;
+    private MenuManager menu;
+    int missStreak = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +22,8 @@ public class LogicaTeclaLeft : MonoBehaviour
         vertical = -1f;
         textHolder = GameObject.Find("EstadoTextHolder");
         if (textHolder != null) { Debug.Log("TextHolderDetected"); }
-
+        menuManager = GameObject.Find("Canvas");
+        menu = menuManager.GetComponent<MenuManager>();
         Beat_Area = GameObject.Find("Beat_Area");
         if (Beat_Area != null) { playerLogic = Beat_Area.GetComponent<LogicaJugador>(); }
     }
@@ -50,7 +55,7 @@ public class LogicaTeclaLeft : MonoBehaviour
                         HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Early");
                         playerLogic.score += 2;
                         playerLogic.text.text = "Score: " + playerLogic.score.ToString();
-
+                        missStreak = 0;
                     }
                     else if (transform.position.y < height)
                     {
@@ -58,6 +63,7 @@ public class LogicaTeclaLeft : MonoBehaviour
                         HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Late");
                         playerLogic.score += 2;
                         playerLogic.text.text = "Score: " + playerLogic.score.ToString();
+                        missStreak = 0;
                     }
                 }
                 else
@@ -66,11 +72,25 @@ public class LogicaTeclaLeft : MonoBehaviour
                     HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Excellent");
                     playerLogic.score += 4;
                     playerLogic.text.text = "Score: " + playerLogic.score.ToString();
+                    missStreak = 0;
                 }
                 Destroy(gameObject);
                 Debug.Log("Arrow Destroyed: " + gameObject.name);
             }
-
+            else
+            {
+                GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
+                HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Miss");
+                missStreak++;
+                if (missStreak >= 3)
+                {
+                    menu.panel.SetActive(false);
+                    menu.escogiendoBeat = false;
+                    menu.playingClassic = false;
+                    menu.gameplayUI.SetActive(false);
+                    menu.AbrirMenuContraataque();
+                }
+            }
         }
         //LogicaTextos.UpdateTextShowTime();
     }
