@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public List<int> lvlsCompletados = new List<int>();
-    public int lvlsUnblocked = 1;
+    public int lvlsUnblocked = 2;
 
     public Vector2 guardarPosJugador = new Vector2(-12f, -1.5f);
     public int guardarTargetIndex = 0;
