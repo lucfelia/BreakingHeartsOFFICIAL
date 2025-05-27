@@ -54,6 +54,9 @@ public class MenuManager : MonoBehaviour {
     //Sound
     private AudioSource au;
 
+    //TIMER
+    public Timer timer;
+
     private void Start()
     {
         au = GetComponent<AudioSource>();
@@ -147,6 +150,7 @@ public class MenuManager : MonoBehaviour {
         playingNightcore = true;
         gameplayUI.SetActive(true);
         EnemyBeat.SetActive(false);
+        timer.timer = 0f;
     }
     public void AbrirMenuReggaetonGameplay()
     {
@@ -159,6 +163,7 @@ public class MenuManager : MonoBehaviour {
         playingReggaeton = true;
         gameplayUI.SetActive(true);
         EnemyBeat.SetActive(false);
+        timer.timer = 0f;
     }
 
     public void AbrirMenuAviso()
@@ -174,6 +179,7 @@ public class MenuManager : MonoBehaviour {
         //activado:
         EnemyBeat.SetActive(true);
         warningContraataque.SetActive(true);
+        timer.timer = 0f;
     }
 
     public void AbrirMenuContraataque()
@@ -194,6 +200,7 @@ public class MenuManager : MonoBehaviour {
         //activado:
         curarGameplay.SetActive(true);
         EnemyBeat.SetActive(true);
+        timer.timer = 0f;
     }
     public void AbrirMenuGameover()
     {        

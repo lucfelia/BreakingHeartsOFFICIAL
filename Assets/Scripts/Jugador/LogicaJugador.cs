@@ -14,16 +14,6 @@ public class LogicaJugador : MonoBehaviour
 
     private int damageDone = 0;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //encuentre a scoreui en unity y saque lo que tiene escrito
-        text = GameObject.Find("ScoreUI").GetComponent<TextMeshProUGUI>();
-        Enemigo = GameObject.Find("EnemyLogic");
-        if (Enemigo != null) { EnemyLife = Enemigo.GetComponent<EnemyLife>(); }
-    }
-
     // Update is called once per frame
     void Update()
     {

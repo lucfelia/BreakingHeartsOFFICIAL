@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    private float timer = 0f;
+    public float timer = 0f;
     private float healed = 0f;
     public GameObject enemy;
     public float timeEnemy = 1.5f;
@@ -23,6 +20,7 @@ public class Timer : MonoBehaviour
     public GameObject menuGameplay;
     public EventSystem eventSystem;
     public VidaJugador vidaJugador;
+    public Transform logicaContenedor;
 
     // Start is called before the first frame update
     void Start()
@@ -93,8 +91,16 @@ public class Timer : MonoBehaviour
         }
         if (menuManager.warningContraataque.activeSelf)
         {
+            //Limpia el classic
+            generadorLofi.SetActive(false);
+            foreach (Transform child in logicaContenedor)
+            {
+                Destroy(child.gameObject);
+            }
+
             if (timer >= timeAviso)
             {
+                generadorLofi.SetActive(true);
                 timer = 0f;
                 menuManager.AbrirMenuContraataque();
             }

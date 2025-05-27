@@ -7,11 +7,8 @@ public class LogicaGenerador : MonoBehaviour
     public float startTime;
     public int random;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    //Padre de las teclas
+    public Transform contenedorTeclas;
 
     // Update is called once per frame
     void Update()
@@ -37,7 +34,7 @@ public class LogicaGenerador : MonoBehaviour
                     teclas[3].transform.position = new Vector3(3, 6);
                 }
 
-                Instantiate(teclas[random]);
+                Instantiate(teclas[random], contenedorTeclas);
                 timeBetween = startTime;
             }
             else
