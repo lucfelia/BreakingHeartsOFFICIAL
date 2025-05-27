@@ -6906,7 +6906,6 @@ GameObject:
   - component: {fileID: 1109388382}
   - component: {fileID: 1109388384}
   - component: {fileID: 1109388383}
-  - component: {fileID: 1109388385}
   m_Layer: 5
   m_Name: HEAL
   m_TagString: Untagged
@@ -7138,21 +7137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b428a8bae124f48b7ef4dccdca4733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1109388385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109388378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 524dc290147c1114bbf634433bd9d391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverPanel: {fileID: 949977689}
-  player: {fileID: 1092855681}
-  botonDefault: {fileID: 1109388382}
 --- !u!1 &1129130923
 GameObject:
   m_ObjectHideFlags: 0

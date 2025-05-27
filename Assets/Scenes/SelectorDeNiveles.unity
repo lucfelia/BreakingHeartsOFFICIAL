@@ -1620,7 +1620,7 @@ MonoBehaviour:
   spriteBloqueado: {fileID: 21300000, guid: 7b2619743c994d34dbfbc7a5f34465a8, type: 3}
   spriteDesbloqueado: {fileID: 21300000, guid: 8c0a90ce542c54240b8badcf7cee5eeb, type: 3}
   spriteJugado: {fileID: 21300000, guid: c9c955a099a6fba4ba09feb927c70aee, type: 3}
-  lvlDeDesbloqueo: 1
+  lvlDeDesbloqueo: 2
 --- !u!1 &1432431463
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,7 +2111,7 @@ MonoBehaviour:
   spriteBloqueado: {fileID: 21300000, guid: 7b2619743c994d34dbfbc7a5f34465a8, type: 3}
   spriteDesbloqueado: {fileID: 21300000, guid: 8c0a90ce542c54240b8badcf7cee5eeb, type: 3}
   spriteJugado: {fileID: 21300000, guid: c9c955a099a6fba4ba09feb927c70aee, type: 3}
-  lvlDeDesbloqueo: 2
+  lvlDeDesbloqueo: 3
 --- !u!1 &1796533225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2786,7 +2786,7 @@ MonoBehaviour:
   spriteBloqueado: {fileID: 21300000, guid: 7b2619743c994d34dbfbc7a5f34465a8, type: 3}
   spriteDesbloqueado: {fileID: 21300000, guid: 8c0a90ce542c54240b8badcf7cee5eeb, type: 3}
   spriteJugado: {fileID: 21300000, guid: c9c955a099a6fba4ba09feb927c70aee, type: 3}
-  lvlDeDesbloqueo: 0
+  lvlDeDesbloqueo: 1
 --- !u!1 &1967875467
 GameObject:
   m_ObjectHideFlags: 0
