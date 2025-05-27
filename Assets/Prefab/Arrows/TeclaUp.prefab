@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6911432693208560852}
   - component: {fileID: 4239306227516540370}
   - component: {fileID: 7889311584311145232}
-  - component: {fileID: 5952555015759258697}
   - component: {fileID: 1795637246831776051}
+  - component: {fileID: -2654645102289680924}
   m_Layer: 6
   m_Name: TeclaUp
   m_TagString: Tecla
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440543722439166413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 6, z: 0}
+  m_LocalPosition: {x: -1, y: 6, z: 0}
   m_LocalScale: {x: 0.12, y: 0.12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -178,26 +178,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 2}
   m_EdgeRadius: 0
---- !u!114 &5952555015759258697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440543722439166413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb6c91d0f2bc8134b85586b433869c27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  counter: 0
-  inside: 0
-  height: 0
-  Beat_Area: {fileID: 0}
-  playerLogic: {fileID: 0}
-  hitTextPrefab: {fileID: 3891126095502582865, guid: 4e4e65373d365614bb0ad3126e65a769, type: 3}
-  textHolder: {fileID: 0}
 --- !u!61 &1795637246831776051
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -243,3 +223,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-2654645102289680924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440543722439166413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c388c65b6e82d104ba7ee5e1adaca6ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyToCheck: 273
+  speed: 3
+  counter: 0
+  missCounter: 0
+  height: 0
+  margin: 0.3
+  inside: 0
+  missInside: 0
+  Beat_Area: {fileID: 0}
+  playerLogic: {fileID: 0}
+  hitTextPrefab: {fileID: 3891126095502582865, guid: 4e4e65373d365614bb0ad3126e65a769, type: 3}
+  textHolder: {fileID: 0}
+  menuManager: {fileID: 0}

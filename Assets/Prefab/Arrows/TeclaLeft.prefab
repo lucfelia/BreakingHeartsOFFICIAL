@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2243178746387356332}
   - component: {fileID: 6904373823825030646}
   - component: {fileID: 2820212006862133941}
-  - component: {fileID: 1955344200049583755}
   - component: {fileID: 8189529514157363132}
+  - component: {fileID: -7887150398583342393}
   m_Layer: 6
   m_Name: TeclaLeft
   m_TagString: Tecla
@@ -178,26 +178,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 2}
   m_EdgeRadius: 0
---- !u!114 &1955344200049583755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3450725729466746446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd76499bc5d674b449a420a401758ff6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  counter: 0
-  inside: 0
-  height: 0
-  Beat_Area: {fileID: 0}
-  playerLogic: {fileID: 0}
-  hitTextPrefab: {fileID: 3891126095502582865, guid: 4e4e65373d365614bb0ad3126e65a769, type: 3}
-  textHolder: {fileID: 0}
 --- !u!61 &8189529514157363132
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -243,3 +223,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-7887150398583342393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3450725729466746446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c388c65b6e82d104ba7ee5e1adaca6ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyToCheck: 276
+  speed: 3
+  counter: 0
+  height: 0
+  margin: 0.3
+  inside: 0
+  Beat_Area: {fileID: 0}
+  playerLogic: {fileID: 0}
+  hitTextPrefab: {fileID: 3891126095502582865, guid: 4e4e65373d365614bb0ad3126e65a769, type: 3}
+  textHolder: {fileID: 0}
+  menuManager: {fileID: 0}

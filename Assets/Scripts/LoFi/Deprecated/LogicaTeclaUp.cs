@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class LogicaTeclaRight : MonoBehaviour
+public class LogicaTeclaUp : MonoBehaviour
 {
     public float speed;
     public int counter = 0;
@@ -17,7 +17,7 @@ public class LogicaTeclaRight : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {        
+    {
         vertical = -1f;
         textHolder = GameObject.Find("EstadoTextHolder");
         if (textHolder != null) { Debug.Log("TextHolderDetected"); }
@@ -42,7 +42,7 @@ public class LogicaTeclaRight : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (inside)
             {
@@ -75,8 +75,9 @@ public class LogicaTeclaRight : MonoBehaviour
                 }
                 Destroy(gameObject);
                 Debug.Log("Arrow Destroyed: " + gameObject.name);
-            }
-            else
+            } 
+            if (!inside && transform.position.y <= height ||
+                !inside && transform.position.y >= height)
             {
                 GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
                 HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Miss");

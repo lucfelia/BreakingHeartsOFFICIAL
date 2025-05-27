@@ -77,7 +77,8 @@ public class LogicaTeclaLeft : MonoBehaviour
                 Destroy(gameObject);
                 Debug.Log("Arrow Destroyed: " + gameObject.name);
             }
-            else
+            if (!inside && transform.position.y <= height ||
+                !inside && transform.position.y >= height)
             {
                 GameObject HitTextInstance = Instantiate(hitTextPrefab, textHolder.transform);
                 HitTextInstance.transform.GetComponent<TextMeshProUGUI>().SetText("Miss");

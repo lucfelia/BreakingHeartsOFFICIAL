@@ -9,6 +9,7 @@ TagManager:
   - Reset
   - Palo
   - Tambor
+  - MissArea
   layers:
   - Default
   - TransparentFX
