@@ -57,6 +57,14 @@ public class MenuManager : MonoBehaviour {
     //TIMER
     public Timer timer;
 
+
+    private void OnEnable()
+    {
+        // Verifica si los ataques deben estar activados
+        attack2.interactable = GameManager.Instance.lvlsCompletados.Contains(1);
+        attack3.interactable = GameManager.Instance.lvlsCompletados.Contains(2);
+    }
+
     private void Start()
     {
         au = GetComponent<AudioSource>();
@@ -81,8 +89,8 @@ public class MenuManager : MonoBehaviour {
     private void Update()
     {
 
-        attack2.interactable = GameManager.Instance.lvlsCompletados.Contains(1);
-        attack3.interactable = GameManager.Instance.lvlsCompletados.Contains(2);
+//        attack2.interactable = GameManager.Instance.lvlsCompletados.Contains(1);
+//        attack3.interactable = GameManager.Instance.lvlsCompletados.Contains(2);
 
         if (vidaJugador.vidaActual == vidaJugador.vidaMax) { puedocurar = false; }
         else { puedocurar = true; }

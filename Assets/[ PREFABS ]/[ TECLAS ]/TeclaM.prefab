@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6393831953222276441}
   - component: {fileID: 7187217490589759820}
   - component: {fileID: 4898089250578208824}
+  - component: {fileID: -3593767936887776289}
   m_Layer: 0
   m_Name: TeclaM
   m_TagString: Tecla
@@ -200,7 +201,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7815014252410075160}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03679a22bd4c0b0429c8b8f01c9b362f, type: 3}
   m_Name: 
@@ -213,3 +214,23 @@ MonoBehaviour:
   playerLogic: {fileID: 0}
   hitTextPrefab: {fileID: 3891126095502582865, guid: 4e4e65373d365614bb0ad3126e65a769, type: 3}
   textHolder: {fileID: 0}
+--- !u!114 &-3593767936887776289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7815014252410075160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad2d5be4fd32514eb1a797a0d07b57c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyToCheck: 109
+  contenedor: {fileID: 0}
+  speed: 5
+  height: 0
+  margin: 0.3
+  inside: 0
+  missInside: 0
+  direction: {x: -1, y: 1}
