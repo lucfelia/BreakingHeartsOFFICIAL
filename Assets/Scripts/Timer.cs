@@ -14,13 +14,18 @@ public class Timer : MonoBehaviour
 
     private GameObject canvas;
     private MenuManager menuManager;
-
-    public GameObject generadorLofi;
-    public GameObject generadorNightCore;
     public GameObject menuGameplay;
     public EventSystem eventSystem;
     public VidaJugador vidaJugador;
+
+    [Header("Lofi")]
+    public GameObject generadorLofi;
     public Transform logicaContenedor;
+
+    [Header("Nightcore")]
+    public GameObject generadorNightcore;
+    public Transform contenedorNightcore;
+
 
     // Start is called before the first frame update
     void Start()
@@ -49,12 +54,12 @@ public class Timer : MonoBehaviour
         }
         if (menuManager.playingNightcore)
         {
-            if (timer >= timeStop) { generadorNightCore.SetActive(false); }
+            if (timer >= timeStop) { generadorNightcore.SetActive(false); }
             if (timer >= timeMenu)
             {
                 timer = 0f;
                 menuManager.AbrirMenuAviso();
-                generadorNightCore.SetActive(true);
+                generadorNightcore.SetActive(true);
             }
             timer += Time.deltaTime;
         }
@@ -91,16 +96,16 @@ public class Timer : MonoBehaviour
         }
         if (menuManager.warningContraataque.activeSelf)
         {
-            //Limpia el classic
+            //Limpia el lofi y el nightcore
             generadorLofi.SetActive(false);
-            foreach (Transform child in logicaContenedor)
-            {
-                Destroy(child.gameObject);
-            }
+            generadorNightcore.SetActive(false);
+            foreach (Transform child in logicaContenedor) Destroy(child.gameObject);
+            foreach (Transform child in contenedorNightcore) Destroy(child.gameObject);
 
             if (timer >= timeAviso)
             {
                 generadorLofi.SetActive(true);
+                generadorNightcore.SetActive(true);
                 timer = 0f;
                 menuManager.AbrirMenuContraataque();
             }

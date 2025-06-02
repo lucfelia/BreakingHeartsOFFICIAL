@@ -1043,6 +1043,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &216421498 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3860917609218190258, guid: d7ffade00ee6d3044af88a26d770eb7c, type: 3}
+  m_PrefabInstance: {fileID: 2996844655216319451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &253821811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,30 +1372,10 @@ PrefabInstance:
       propertyPath: EnemyLife
       value: 
       objectReference: {fileID: 201778140}
-    - target: {fileID: 2579606384614767964, guid: 694e949b54724274e9a628e111660ac7, type: 3}
-      propertyPath: m_Size.y
-      value: 1.3307693
-      objectReference: {fileID: 0}
-    - target: {fileID: 2579606384614767964, guid: 694e949b54724274e9a628e111660ac7, type: 3}
-      propertyPath: m_Offset.y
-      value: 1.4153847
-      objectReference: {fileID: 0}
-    - target: {fileID: 3704518363572999643, guid: 694e949b54724274e9a628e111660ac7, type: 3}
-      propertyPath: textHolder
-      value: 
-      objectReference: {fileID: 253821811}
     - target: {fileID: 5973194811631761766, guid: 694e949b54724274e9a628e111660ac7, type: 3}
       propertyPath: m_Name
       value: ReggaetonBeatGameplay
       objectReference: {fileID: 0}
-    - target: {fileID: 5973194811631761766, guid: 694e949b54724274e9a628e111660ac7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7108501809915776802, guid: 694e949b54724274e9a628e111660ac7, type: 3}
-      propertyPath: textHolder
-      value: 
-      objectReference: {fileID: 253821811}
     - target: {fileID: 7779097432288575134, guid: 694e949b54724274e9a628e111660ac7, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1437,23 +1422,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7779097432288575134, guid: 694e949b54724274e9a628e111660ac7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1433943234}
-    - targetCorrespondingSourceObject: {fileID: 7779097432288575134, guid: 694e949b54724274e9a628e111660ac7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2013247755}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 694e949b54724274e9a628e111660ac7, type: 3}
 --- !u!1 &302717557 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5973194811631761766, guid: 694e949b54724274e9a628e111660ac7, type: 3}
-  m_PrefabInstance: {fileID: 302717556}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &302717558 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7779097432288575134, guid: 694e949b54724274e9a628e111660ac7, type: 3}
   m_PrefabInstance: {fileID: 302717556}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &305854478
@@ -2084,7 +2058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c692bf068b02cf41b875456b503febd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayPerCharacter: 0.05
+  delayPerCharacter: 0.01
   nextTextObject: {fileID: 505250964}
   textNumber: 0
   zack: {fileID: 1580328326}
@@ -2343,7 +2317,7 @@ RectTransform:
   - {fileID: 987803566}
   - {fileID: 162238284}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2497,7 +2471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c692bf068b02cf41b875456b503febd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayPerCharacter: 0.05
+  delayPerCharacter: 0.01
   nextTextObject: {fileID: 835219051}
   textNumber: 1
   zack: {fileID: 1580328326}
@@ -3268,12 +3242,13 @@ MonoBehaviour:
   timeStop: 7.5
   timeMenu: 10
   timeHeal: 5
-  generadorLofi: {fileID: 1379187631}
-  generadorNightCore: {fileID: 1163510980}
   menuGameplay: {fileID: 400413513}
   eventSystem: {fileID: 290195262}
   vidaJugador: {fileID: 425786565}
+  generadorLofi: {fileID: 1379187631}
   logicaContenedor: {fileID: 1379187630}
+  generadorNightcore: {fileID: 1163510980}
+  contenedorNightcore: {fileID: 216421498}
 --- !u!4 &641503621
 Transform:
   m_ObjectHideFlags: 0
@@ -4285,7 +4260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723265022459502612, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4723265022459502612, guid: 0e924ee278bfccd4ea7f1314ba3ce707, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4535,7 +4510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c692bf068b02cf41b875456b503febd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayPerCharacter: 0.05
+  delayPerCharacter: 0.01
   nextTextObject: {fileID: 835353704}
   textNumber: 2
   zack: {fileID: 1580328326}
@@ -4691,7 +4666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c692bf068b02cf41b875456b503febd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayPerCharacter: 0.05
+  delayPerCharacter: 0.01
   nextTextObject: {fileID: 0}
   textNumber: 3
   zack: {fileID: 1580328326}
@@ -6583,6 +6558,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GamePlayLofi
       objectReference: {fileID: 0}
+    - target: {fileID: 5934985788882698861, guid: 2ad63a18335d45342a5104fe334e28dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6665297927730629312, guid: 2ad63a18335d45342a5104fe334e28dd, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -6891,83 +6870,6 @@ MonoBehaviour:
   m_Spacing: {x: 15, y: 15}
   m_Constraint: 1
   m_ConstraintCount: 7
---- !u!1 &1433943233
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1433943234}
-  - component: {fileID: 1433943235}
-  m_Layer: 0
-  m_Name: Reset
-  m_TagString: Reset
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1433943234
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1433943233}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 302717558}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1433943235
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1433943233}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.016754568, y: 1.1309271}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.329821, y: 1.2848263}
-  m_EdgeRadius: 0
 --- !u!1 &1436362192
 GameObject:
   m_ObjectHideFlags: 0
@@ -9179,83 +9081,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000863620}
   m_CullTransparentMesh: 1
---- !u!1 &2013247754
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2013247755}
-  - component: {fileID: 2013247756}
-  m_Layer: 0
-  m_Name: Reset (1)
-  m_TagString: Reset
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2013247755
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013247754}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.19, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 302717558}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2013247756
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013247754}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.025131643, y: 1.0639092}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.3130666, y: 0.94973683}
-  m_EdgeRadius: 0
 --- !u!1 &2013862646
 GameObject:
   m_ObjectHideFlags: 0
@@ -10570,10 +10395,6 @@ PrefabInstance:
     - target: {fileID: 7077196113630221737, guid: d7ffade00ee6d3044af88a26d770eb7c, type: 3}
       propertyPath: m_Name
       value: NightCoreBeatGameplay
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077196113630221737, guid: d7ffade00ee6d3044af88a26d770eb7c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7157652716807929782, guid: d7ffade00ee6d3044af88a26d770eb7c, type: 3}
       propertyPath: text

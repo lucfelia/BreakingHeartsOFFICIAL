@@ -45,8 +45,4 @@ public class LogicaTeclasNC : MonoBehaviour
     {
         return counter;
     }
-
-
 }
-
-

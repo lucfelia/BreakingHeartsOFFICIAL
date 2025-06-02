@@ -15,6 +15,8 @@ public class LogicaContenedorNC : MonoBehaviour
     private LogicaJugador jugadorIz;
     private LogicaJugador jugadorDe;
 
+    private bool limitReached = false;
+
     void Start()
     {
         GameObject iz = GameObject.Find("BeatIz");
@@ -29,116 +31,93 @@ public class LogicaContenedorNC : MonoBehaviour
         if (transform.childCount == 0) return;
 
         // Solo detectar una por frame
-        bool teclaProcesada = false;
+        Transform teclaActiva = transform.GetChild(0);
+        LogicaTeclasNC logica = teclaActiva.GetComponent<LogicaTeclasNC>();
+        if (logica == null) return;
 
-        for (int i = 0; i < transform.childCount; i++)
+        float y = teclaActiva.position.y;
+        float x = teclaActiva.position.x;
+
+        // Si se presiona la tecla, se procesa el resultado
+        if (Input.GetKeyDown(logica.keyToCheck))
         {
-            if (teclaProcesada) break;
-
-            Transform teclaActiva = transform.GetChild(i);
-            LogicaTeclasNC logica = teclaActiva.GetComponent<LogicaTeclasNC>();
-            if (logica == null) continue;
-
-            if (Input.GetKeyDown(logica.keyToCheck))
+            if (logica.inside && y >= height - margin && y <= height + margin)
             {
-                LogicaJugador playerLogic = ObtenerJugadorDesdeTecla(logica.keyToCheck);
-                if (playerLogic == null) continue;
-
-                GameObject texto = Instantiate(hitTextPrefab, teclaActiva);
-                texto.GetComponent<RectTransform>().localPosition = Vector3.zero;
-
-                TextMeshProUGUI textUGUI = texto.GetComponent<TextMeshProUGUI>();
-                TextMeshPro textTMP = texto.GetComponent<TextMeshPro>();
-
-                string resultado = "";
-                int puntos = 0;
-
-                if (logica.inside)
+                MostrarTexto("AMAZING!!!", teclaActiva);
+                ActualizarScore(4);
+                missStreak = 0;
+                teclaActiva.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                StartCoroutine(DestroyTecla(teclaActiva));
+            }
+            else if (logica.inside && y > height)
+            {
+                MostrarTexto("Early..", teclaActiva);
+                ActualizarScore(2);
+                missStreak = 0;
+                teclaActiva.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                StartCoroutine(DestroyTecla(teclaActiva));
+            }
+            else if (logica.inside && y < height)
+            {
+                MostrarTexto("Late..", teclaActiva);
+                ActualizarScore(2);
+                missStreak = 0;
+                teclaActiva.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                StartCoroutine(DestroyTecla(teclaActiva));
+            }
+            else if (logica.missInside)
+            {
+                MostrarTexto("Miss", teclaActiva);
+                missStreak++;
+                if (missStreak >= 3)
                 {
-                    int counter = logica.GetCounter();
-                    float y = teclaActiva.position.y;
-                    float h = logica.height;
-                    bool desdeAbajo = logica.keyToCheck == KeyCode.Z || logica.keyToCheck == KeyCode.M;
-
-                    if (counter == 2)
-                    {
-                        if ((desdeAbajo && y < h) || (!desdeAbajo && y > h))
-                        {
-                            resultado = "Early";
-                            puntos = 2;
-                        }
-                        else
-                        {
-                            resultado = "Late";
-                            puntos = 2;
-                        }
-                    }
-                    else
-                    {
-                        resultado = "Excellent";
-                        puntos = 8;
-                    }
-
-                    if (textUGUI != null) textUGUI.text = resultado;
-                    else if (textTMP != null) textTMP.text = resultado;
-
-                    playerLogic.score += puntos;
-                    ActualizarScore(playerLogic);
                     missStreak = 0;
-                    teclaActiva.GetComponent<SpriteRenderer>().enabled = false;
-                    StartCoroutine(DestroyTecla(teclaActiva));
-                    teclaProcesada = true;
+                    limitReached = false;
+                    menu.AbrirMenuAviso();
                 }
-                else
-                {
-                    // tanto si está en missArea como fuera del área
-                    if (textUGUI != null) textUGUI.text = "Miss";
-                    else if (textTMP != null) textTMP.text = "Miss";
-
-                    missStreak++;
-                    if (missStreak >= 3)
-                    {
-                        missStreak = 0;
-                        menu.AbrirMenuAviso();
-                    }
-
-                    teclaActiva.GetComponent<SpriteRenderer>().enabled = false;
-                    StartCoroutine(DestroyTecla(teclaActiva));
-                    teclaProcesada = true;
-                }
-
+                teclaActiva.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                StartCoroutine(DestroyTecla(teclaActiva));
             }
         }
-    }
 
-
-    LogicaJugador ObtenerJugadorDesdeTecla(KeyCode tecla)
-    {
-        switch (tecla)
+        // Si la tecla se pasa del límite
+        if (x <= 2.5f && x >= -2.5f && !limitReached)
         {
-            case KeyCode.Q:
-            case KeyCode.Z:
-                return jugadorIz;
-            case KeyCode.M:
-            case KeyCode.P:
-                return jugadorDe;
-            default:
-                return null;
+            limitReached = true;
+            MostrarTexto("Miss", teclaActiva);
+            missStreak++;
+            if (missStreak >= 3)
+            {
+                missStreak = 0;
+                limitReached = false;
+                menu.AbrirMenuAviso();
+            }
+            teclaActiva.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            StartCoroutine(DestroyTecla(teclaActiva));
         }
     }
 
-    void ActualizarScore(LogicaJugador jugador)
+    void MostrarTexto(string mensaje, Transform tecla)
     {
-        jugador.text.text = "Score: " + jugador.score.ToString();
+        if (transform.childCount == 0) return;  // No hay hijos, nada que mostrar
+
+        GameObject texto = Instantiate(hitTextPrefab, tecla);
+        texto.GetComponent<RectTransform>().localPosition = Vector3.zero;
+        texto.GetComponent<TextMeshPro>().SetText(mensaje);
+    }
+
+    void ActualizarScore(int puntos)
+    {
+        jugadorIz.score += puntos;
+        jugadorDe.score += puntos;
+        jugadorIz.text.text = "Score: " + jugadorIz.score.ToString();
+        jugadorDe.text.text = "Score: " + jugadorDe.score.ToString();
     }
 
     IEnumerator DestroyTecla(Transform tecla)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f); // Temporizador ajustado
         Destroy(tecla.gameObject);
+        limitReached = false;
     }
 }
-
-
-
-
