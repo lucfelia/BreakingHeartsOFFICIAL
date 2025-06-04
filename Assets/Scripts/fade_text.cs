@@ -8,6 +8,8 @@ public class FadeTextByCharacter : MonoBehaviour
     public TMP_Text nameLabel;
     public TMP_Text textLabel;
     public Animator anim;
+    public GameObject feedback;
+    public int indexCinematica = 1;
 
     //hace una area en el inspector que puede alargarse hasta 3 sin scroll
     //(max de lineas que puede mostrar sin que se salga del rectangulo)
@@ -24,6 +26,7 @@ public class FadeTextByCharacter : MonoBehaviour
 
     void Start()
     {
+        feedback.SetActive(false);
         nameLabel.text = string.Empty;
         textLabel.text = string.Empty;
         StartDialogue();
@@ -35,7 +38,7 @@ public class FadeTextByCharacter : MonoBehaviour
         {
             anim.SetBool("2nd", true);
         }
-        if (index > 2)
+        if (index == 2)
         {
             anim.SetBool("3rd", true);
         }
@@ -46,6 +49,7 @@ public class FadeTextByCharacter : MonoBehaviour
             //si se estaba haciendo una coroutina esta se para y se muestra todo el dialogo
             if (_isTyping != null)
             {
+                feedback.SetActive(true);
                 StopCoroutine(_isTyping);
                 textLabel.maxVisibleCharacters = textLabel.textInfo.characterCount;
                 _isTyping = null;
@@ -62,22 +66,27 @@ public class FadeTextByCharacter : MonoBehaviour
     void StartDialogue()
     {
         index = 0;
-        ShowDialogue();
+        StartCoroutine(ShowDialogueCoroutine());
     }
 
     //funcion que hace que todas las letras del dialogo se vuelvan invisibles
-    void ShowDialogue()
+    IEnumerator ShowDialogueCoroutine()
     {
+        if (index == indexCinematica) {
+            feedback.SetActive (false);
+            yield return new WaitForSeconds(5);
+        }
+
         nameLabel.text = name[index];
         textLabel.text = dialogue[index];
         textLabel.maxVisibleCharacters = 0;
-        //empieza la coroutina
         _isTyping = StartCoroutine(RevealCharacters());
     }
 
     //coroutina que hace visibles las letras una por una
     IEnumerator RevealCharacters()
     {
+        feedback.SetActive(false);
         //se actualiza el texto y se cuentan cuantas letras hay en el texto para meterlas en una variable
         textLabel.ForceMeshUpdate();
         int totalCharacters = textLabel.textInfo.characterCount;
@@ -92,8 +101,9 @@ public class FadeTextByCharacter : MonoBehaviour
         }
 
         _isTyping = null;
+        feedback.SetActive(true);
     }
-
+    
     //actualiza el index, si hay mas dialogo que mostrar, se suma el index y se muestra dicho nuevo dialogo,
     //si no, se destruye el objeto
     void NextDialogue()
@@ -101,7 +111,7 @@ public class FadeTextByCharacter : MonoBehaviour
         if (index < dialogue.Length - 1)
         {
             index++;
-            ShowDialogue();
+            StartCoroutine(ShowDialogueCoroutine());
         }
         else
         {

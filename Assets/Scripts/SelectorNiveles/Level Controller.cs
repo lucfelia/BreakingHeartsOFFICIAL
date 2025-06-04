@@ -32,7 +32,7 @@ public class LevelController : MonoBehaviour
             // Get the targetIndex from the PlayerController
             targetIndex = playerController.targetIndex;
 
-            if (playerController.onNode && Input.GetKeyDown(KeyCode.Return))
+            if (playerController.onNode && Input.GetKeyDown(KeyCode.E))
             {
                 if (targetIndex <= GameManager.Instance.lvlsUnblocked)
                 {
