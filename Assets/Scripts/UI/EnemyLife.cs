@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class EnemyLife : MonoBehaviour
 {
+    public MenuManager menuManager;
+
     public int vidaActualEnemigo;
     public int vidaMaxEnemigo;
     public UnityEvent<int> cambioVidaEnemigo;
@@ -65,8 +67,7 @@ public class EnemyLife : MonoBehaviour
         {
             Debug.Log("Enemigo vencido!");
             GameManager.Instance.CompleteLevel(LevelController.Instance.targetIndex);
-
-            SceneManager.LoadScene("SelectorDeNiveles");
+            menuManager.AbrirMenuLvlClear();
         }
     }
 }

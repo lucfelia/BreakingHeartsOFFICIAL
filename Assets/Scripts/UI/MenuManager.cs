@@ -55,6 +55,9 @@ public class MenuManager : MonoBehaviour {
     public GameObject gameover;
     public GameObject gameoverDefault;
 
+    public GameObject endAnim;
+    public GameObject lvlcleared;
+
     //Sound
     private AudioSource au;
 
@@ -90,6 +93,8 @@ public class MenuManager : MonoBehaviour {
         puedocurar = false;
         curarGameplay.SetActive(false);
         gameover.SetActive(false);
+        endAnim.SetActive(false);
+        lvlcleared.SetActive(false);
         gameplayUI.SetActive(false);
     }
     private void Update()
@@ -259,6 +264,17 @@ public class MenuManager : MonoBehaviour {
         //activado:
         gameover.SetActive(true);
         EnemyBeat.SetActive(true);
+    }
+
+    public void AbrirMenuLvlClear()
+    {
+        StartCoroutine(EndAnimation());
+    }
+    IEnumerator EndAnimation()
+    {
+        endAnim.SetActive(true);
+        yield return new WaitForSeconds(10);
+        lvlcleared.SetActive(true);
     }
 
     public void ReiniciarNivel()
