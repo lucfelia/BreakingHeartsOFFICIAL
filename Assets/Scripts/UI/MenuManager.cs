@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -31,12 +32,15 @@ public class MenuManager : MonoBehaviour {
     public GameObject EnemyBeat;
     //Gameplays
     //Classic beat
+    public GameObject avisoLofi;
     public bool playingClassic = false;
     public GameObject[] classicBeatGameplay;
-        //Nightcore beat
+    //Nightcore beat
+    public GameObject avisoNightcore;
     public bool playingNightcore = false;
     public GameObject[] nightcoreBeatGameplay;
         //Reggaeton beat
+    public GameObject avisoReggaeton;
     public bool playingReggaeton = false;
     public GameObject[] reggaetonBeatGameplay;
         //Contraataque beat
@@ -73,6 +77,10 @@ public class MenuManager : MonoBehaviour {
 
 
         //desactivado:
+        avisoLofi.SetActive(false);
+        avisoNightcore.SetActive(false);
+        avisoReggaeton.SetActive(false);
+
         curarDefault.interactable = puedocurar;
         escogiendoBeat = false;
         playingClassic = false;
@@ -133,25 +141,49 @@ public class MenuManager : MonoBehaviour {
         panel.SetActive(true);
         EnemyBeat.SetActive(true);
     }
+        
     public void AbrirMenuClassicGameplay()
     {
-        au.Play();
-        Debug.Log("[MenuManager.cs] - Classic Gameplay");
         //desactivado:
         panel.SetActive(false);
         escogiendoBeat = false;
+        
+        StartCoroutine(AvisoLofi());
+    }
+    IEnumerator AvisoLofi()
+    {
+        //activado:
+        avisoLofi.SetActive(true);
+
+        yield return new WaitForSeconds(2.5f);
+        au.Play();
+        Debug.Log("[MenuManager.cs] - Classic Gameplay");
+        //desactivado:
+        avisoLofi.SetActive(false);
         //activado:
         playingClassic = true;
         gameplayUI.SetActive(true);
         EnemyBeat.SetActive(false);
     }
+
     public void AbrirMenuNightcoreGameplay()
     {
-        au.Play();
-        Debug.Log("[MenuManager.cs] - Nightcore Gameplay");
         //desactivado:
         panel.SetActive(false);
         escogiendoBeat = false;
+        
+        StartCoroutine(AvisoNightcore());
+    }
+    IEnumerator AvisoNightcore()
+    {
+        //activado:
+        avisoNightcore.SetActive(true);
+
+        yield return new WaitForSeconds(2.5f);
+        au.Play();
+        Debug.Log("[MenuManager.cs] - Nightcore Gameplay");
+        //desactivado:
+        avisoNightcore.SetActive(false);
         //activado:
         playingNightcore = true;
         gameplayUI.SetActive(true);
@@ -160,11 +192,22 @@ public class MenuManager : MonoBehaviour {
     }
     public void AbrirMenuReggaetonGameplay()
     {
-        au.Play();
-        Debug.Log("[MenuManager.cs] - Reggaeton Gameplay");
         //desactivado:
         panel.SetActive(false);
         escogiendoBeat = false;
+        
+        StartCoroutine(AvisoReggaeton());
+    }
+    IEnumerator AvisoReggaeton()
+    {
+        //activado:
+        avisoReggaeton.SetActive(true);
+
+        yield return new WaitForSeconds(2.5f);
+        au.Play();
+        Debug.Log("[MenuManager.cs] - Reggaeton Gameplay");
+        //desactivado:
+        avisoReggaeton.SetActive(false);
         //activado:
         playingReggaeton = true;
         gameplayUI.SetActive(true);
