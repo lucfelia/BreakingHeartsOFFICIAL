@@ -4,102 +4,109 @@ using System.Collections;
 
 public class FadeTextByCharacter : MonoBehaviour
 {
-    public float delayPerCharacter = 0.05f;
-    public GameObject nextTextObject;
+    //asigna el texto donde estara el dialogo
+    public TMP_Text nameLabel;
+    public TMP_Text textLabel;
+    public Animator anim;
 
-    public int textNumber = 0;
-    public GameObject zack;
-    public GameObject zoey;
-    public GameObject enemigo;
-    public GameObject enemyHealth;
-    public GameObject playerHealth;
-    public GameObject textoPelea;
-    public MenuManager menuManager;
+    //hace una area en el inspector que puede alargarse hasta 3 sin scroll
+    //(max de lineas que puede mostrar sin que se salga del rectangulo)
+    public string[] name;
+    [TextArea(1, 3)]
+    public string[] dialogue;
+    //velocidad en la que va el texto al escribirse
+    public float textSpeed;
 
+    //index del dialogo que se va a mostrar dentro de la string de dialoue[]
+    //y para saber si la coroutina esta en funcionamiento
+    private int index;
+    private Coroutine _isTyping;
 
-    private TextMeshProUGUI textMesh;
-    private bool textFinished = false;
-    private bool waitingForInput = false;
-
-    void OnEnable()
+    void Start()
     {
-        textMesh = GetComponent<TextMeshProUGUI>();
-
-        if (textMesh != null)
-        {
-            textMesh.ForceMeshUpdate();
-            textMesh.maxVisibleCharacters = 0;
-            StartCoroutine(RevealCharacters());
-        }
-    }
-
-    IEnumerator RevealCharacters()
-    {
-        int totalCharacters = textMesh.textInfo.characterCount;
-
-        for (int i = 0; i <= totalCharacters; i++)
-        {
-            textMesh.maxVisibleCharacters = i;
-            yield return new WaitForSeconds(delayPerCharacter);
-        }
-
-        textFinished = true;
-        waitingForInput = true;
+        nameLabel.text = string.Empty;
+        textLabel.text = string.Empty;
+        StartDialogue();
     }
 
     void Update()
     {
-
-        if(textNumber == 0)
+        if (index > 0)
         {
-            enemigo.SetActive(true);
-            zack.SetActive(false);
-            zoey.SetActive(false);
-            enemyHealth.SetActive(false);
-            playerHealth.SetActive(false);
+            anim.SetBool("2nd", true);
         }
-
-        if (textNumber == 1)
+        if (index > 2)
         {
-            enemigo.SetActive(false);
-            zack.SetActive(true);
-            zoey.SetActive(true);
-            enemyHealth.SetActive(false);
-            playerHealth.SetActive(false);
-        
+            anim.SetBool("3rd", true);
         }
 
-        if (textNumber == 2) {
-            enemigo.SetActive(false);
-            zack.SetActive(true);
-            zoey.SetActive(true);
-            enemyHealth.SetActive(false);
-            playerHealth.SetActive(false);
-        
-        }
-
-        if (textNumber == 3) { 
-        
-            zack.SetActive(false);
-            zoey.SetActive(false);
-            enemigo.SetActive(true);
-            menuManager.panel.SetActive(true);
-            menuManager.menuInicial.SetActive(true);
-            enemyHealth.SetActive(true);
-            playerHealth.SetActive(true);
-            textoPelea.SetActive(false);
-        }
-
-        if (waitingForInput && Input.GetKeyDown(KeyCode.Return))
+        //si apretamos el click derecho del raton
+        if (Input.GetMouseButtonDown(0))
         {
-            waitingForInput = false;
-
-            if (nextTextObject != null)
+            //si se estaba haciendo una coroutina esta se para y se muestra todo el dialogo
+            if (_isTyping != null)
             {
-                nextTextObject.SetActive(true);
+                StopCoroutine(_isTyping);
+                textLabel.maxVisibleCharacters = textLabel.textInfo.characterCount;
+                _isTyping = null;
             }
+            //si no, muestra el siguiente dialogo en el index
+            else
+            {
+                NextDialogue();
+            }
+        }
+    }
 
-            gameObject.SetActive(false);
+    //funcion que hace empezar de 0 el dialogo
+    void StartDialogue()
+    {
+        index = 0;
+        ShowDialogue();
+    }
+
+    //funcion que hace que todas las letras del dialogo se vuelvan invisibles
+    void ShowDialogue()
+    {
+        nameLabel.text = name[index];
+        textLabel.text = dialogue[index];
+        textLabel.maxVisibleCharacters = 0;
+        //empieza la coroutina
+        _isTyping = StartCoroutine(RevealCharacters());
+    }
+
+    //coroutina que hace visibles las letras una por una
+    IEnumerator RevealCharacters()
+    {
+        //se actualiza el texto y se cuentan cuantas letras hay en el texto para meterlas en una variable
+        textLabel.ForceMeshUpdate();
+        int totalCharacters = textLabel.textInfo.characterCount;
+
+        // variable que sirve de index para mostrar letra por letra hasta llegar al maximo a la velocidad del textSpeed
+        int visibleCount = 0;
+        while (visibleCount <= totalCharacters)
+        {
+            textLabel.maxVisibleCharacters = visibleCount;
+            visibleCount++;
+            yield return new WaitForSeconds(textSpeed);
+        }
+
+        _isTyping = null;
+    }
+
+    //actualiza el index, si hay mas dialogo que mostrar, se suma el index y se muestra dicho nuevo dialogo,
+    //si no, se destruye el objeto
+    void NextDialogue()
+    {
+        if (index < dialogue.Length - 1)
+        {
+            index++;
+            ShowDialogue();
+        }
+        else
+        {
+            textLabel.text = string.Empty;
+            Destroy(gameObject);
         }
     }
 }
