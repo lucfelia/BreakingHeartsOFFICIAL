@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6397769543373580459}
   - component: {fileID: 4818113117239806304}
   - component: {fileID: 2315967319521742128}
-  - component: {fileID: -777452177172684064}
   - component: {fileID: 574487603966949848}
   m_Layer: 0
   m_Name: TeclaZ
@@ -194,26 +193,6 @@ CircleCollider2D:
   m_Offset: {x: -1.53, y: -2.51}
   serializedVersion: 2
   m_Radius: 4.15
---- !u!114 &-777452177172684064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489564522661796344}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 457c9a775096a86469954fe301ccf7e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  counter: 0
-  inside: 0
-  height: 0
-  Beat_Area: {fileID: 0}
-  playerLogic: {fileID: 0}
-  hitTextPrefab: {fileID: 3891126095502582865, guid: 4e4e65373d365614bb0ad3126e65a769, type: 3}
-  textHolder: {fileID: 0}
 --- !u!114 &574487603966949848
 MonoBehaviour:
   m_ObjectHideFlags: 0

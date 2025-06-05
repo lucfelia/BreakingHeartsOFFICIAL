@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6321330893522184935}
   - component: {fileID: 9153573565879382464}
   - component: {fileID: 4843870588221590693}
-  - component: {fileID: 6941613923958101382}
   - component: {fileID: -4832717808082138785}
   m_Layer: 0
   m_Name: TeclaP
@@ -194,26 +193,6 @@ CircleCollider2D:
   m_Offset: {x: -1.53, y: -2.51}
   serializedVersion: 2
   m_Radius: 4.15
---- !u!114 &6941613923958101382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735568265065138407}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd4689a1196e21c41a723d25c97d6ade, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  counter: 0
-  inside: 0
-  height: 0
-  Beat_Area: {fileID: 0}
-  playerLogic: {fileID: 0}
-  hitTextPrefab: {fileID: 3891126095502582865, guid: 4e4e65373d365614bb0ad3126e65a769, type: 3}
-  textHolder: {fileID: 0}
 --- !u!114 &-4832717808082138785
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4311924555872750994}
   - component: {fileID: 6393831953222276441}
   - component: {fileID: 7187217490589759820}
-  - component: {fileID: 4898089250578208824}
   - component: {fileID: -3593767936887776289}
   m_Layer: 0
   m_Name: TeclaM
@@ -194,26 +193,6 @@ CircleCollider2D:
   m_Offset: {x: 1.53, y: -2.51}
   serializedVersion: 2
   m_Radius: 4.15
---- !u!114 &4898089250578208824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7815014252410075160}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03679a22bd4c0b0429c8b8f01c9b362f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  counter: 0
-  inside: 0
-  height: 0
-  Beat_Area: {fileID: 0}
-  playerLogic: {fileID: 0}
-  hitTextPrefab: {fileID: 3891126095502582865, guid: 4e4e65373d365614bb0ad3126e65a769, type: 3}
-  textHolder: {fileID: 0}
 --- !u!114 &-3593767936887776289
 MonoBehaviour:
   m_ObjectHideFlags: 0
