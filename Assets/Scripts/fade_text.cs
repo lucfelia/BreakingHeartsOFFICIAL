@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class FadeTextByCharacter : MonoBehaviour
 {
@@ -117,7 +118,10 @@ public class FadeTextByCharacter : MonoBehaviour
         else
         {
             textLabel.text = string.Empty;
-            Destroy(gameObject);
+            if (SceneManager.GetActiveScene().name == "SelectorDeNiveles")
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
