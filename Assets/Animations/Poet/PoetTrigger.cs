@@ -15,8 +15,11 @@ public class PoetTrigger : MonoBehaviour
         animParent = GameObject.Find("AllTexts-SelectLvl").transform;
         if (animParent != null) {
             Transform panelTransform = animParent.Find("PoetPanel");
-            dialogueBox = panelTransform.gameObject;
-            dialogueBox.SetActive(false);
+            if (panelTransform != null)
+            {
+                dialogueBox = panelTransform.gameObject;
+                dialogueBox.SetActive(false);
+            }
         }
 
         anim = GetComponent<Animator>();

@@ -10,6 +10,7 @@ public class FadeTextByCharacter : MonoBehaviour
     public Animator anim;
     public GameObject feedback;
     public int indexCinematica = 1;
+    public float waitCinematica = 5f;
 
     //hace una area en el inspector que puede alargarse hasta 3 sin scroll
     //(max de lineas que puede mostrar sin que se salga del rectangulo)
@@ -74,7 +75,7 @@ public class FadeTextByCharacter : MonoBehaviour
     {
         if (index == indexCinematica) {
             feedback.SetActive (false);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(waitCinematica);
         }
 
         nameLabel.text = name[index];

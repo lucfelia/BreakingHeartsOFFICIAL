@@ -15,22 +15,4 @@ public class AnimManager : MonoBehaviour
         }
         else { Destroy(gameObject); }
     }
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    void OnSceneLoaded(Scene escena, LoadSceneMode mode)
-    {
-        if (SceneManager.GetActiveScene().name == "SelectorDeNiveles") {
-            foreach (GameObject pans in panels) {
-                pans.SetActive(true);
-            }
-        }
-    }
 }
