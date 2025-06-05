@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour {
 
     //Nivel
     private int playerLevel;
+    public float timeEndCinematic = 10;
 
     //Menus
     //Inicial
@@ -93,7 +94,10 @@ public class MenuManager : MonoBehaviour {
         puedocurar = false;
         curarGameplay.SetActive(false);
         gameover.SetActive(false);
-        endAnim.SetActive(false);
+
+        if(endAnim != null)
+            endAnim.SetActive(false);
+
         lvlcleared.SetActive(false);
         gameplayUI.SetActive(false);
     }
@@ -272,8 +276,10 @@ public class MenuManager : MonoBehaviour {
     }
     IEnumerator EndAnimation()
     {
-        endAnim.SetActive(true);
-        yield return new WaitForSeconds(10);
+        if(endAnim != null)
+            endAnim.SetActive(true);
+
+        yield return new WaitForSeconds(timeEndCinematic);
         lvlcleared.SetActive(true);
     }
 

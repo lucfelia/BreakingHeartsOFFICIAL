@@ -34,7 +34,7 @@ public class FadeTextByCharacter : MonoBehaviour
 
     void Update()
     {
-        if (index > 0)
+        if (index == 1)
         {
             anim.SetBool("2nd", true);
         }

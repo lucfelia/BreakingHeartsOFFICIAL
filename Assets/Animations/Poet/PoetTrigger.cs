@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class oldManTrigger : MonoBehaviour
+public class PoetTrigger : MonoBehaviour
 {
     private Animator anim;
     private string fall = "isFalling";
@@ -10,20 +10,22 @@ public class oldManTrigger : MonoBehaviour
     public GameObject pressE;
 
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         animParent = GameObject.Find("AllTexts-SelectLvl").transform;
         if (animParent != null) {
-            Transform panelTransform = animParent.Find("OldManPanel");
+            Transform panelTransform = animParent.Find("PoetPanel");
             dialogueBox = panelTransform.gameObject;
             dialogueBox.SetActive(false);
         }
-        
+
         anim = GetComponent<Animator>();
         anim.SetBool(fall, false);
         pressE.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.CompareTag("Player"))
         {
             anim.SetBool(fall, true);
@@ -41,8 +43,10 @@ public class oldManTrigger : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) {
-            if (dialogueBox == null) {
+        if (collision.CompareTag("Player"))
+        {
+            if (dialogueBox == null)
+            {
                 pressE.SetActive(true);
             }
         }
@@ -50,8 +54,10 @@ public class oldManTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) {
-            if (dialogueBox == null) {
+        if (collision.CompareTag("Player"))
+        {
+            if (dialogueBox == null)
+            {
                 pressE.SetActive(false);
             }
         }
