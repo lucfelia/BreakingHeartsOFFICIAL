@@ -421,6 +421,10 @@ PrefabInstance:
       propertyPath: EnemyLife
       value: 
       objectReference: {fileID: 201778140}
+    - target: {fileID: 1991314041880858145, guid: 694e949b54724274e9a628e111660ac7, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 998620f256b5a184387067bdf604822b, type: 3}
     - target: {fileID: 5973194811631761766, guid: 694e949b54724274e9a628e111660ac7, type: 3}
       propertyPath: m_Name
       value: GamePlayReggaeton
@@ -2235,6 +2239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaJugador: {fileID: 425786565}
+  timeEndCinematic: 10
   menuInicial: {fileID: 332105225}
   inicioDefault: {fileID: 1794459525}
   gameplayUI: {fileID: 400413513}
@@ -16207,6 +16212,10 @@ PrefabInstance:
       propertyPath: EnemyLife
       value: 
       objectReference: {fileID: 201778140}
+    - target: {fileID: 3391918289050662566, guid: 2ad63a18335d45342a5104fe334e28dd, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e10e82b2643ebd4faf181fa9c34d031, type: 3}
     - target: {fileID: 5934985788882698861, guid: 2ad63a18335d45342a5104fe334e28dd, type: 3}
       propertyPath: m_Name
       value: GamePlayLofi
