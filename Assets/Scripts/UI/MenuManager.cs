@@ -50,6 +50,7 @@ public class MenuManager : MonoBehaviour {
     public GameObject[] contraataqueGameplay;
 
     //Curar
+    public GameObject avisoHealing;
     public GameObject curarGameplay;
     
     //Gameover
@@ -250,8 +251,20 @@ public class MenuManager : MonoBehaviour {
     }
     public void AbrirMenuCurar()
     {
+        //desactivado:
+        panel.SetActive(false);
+        escogiendoBeat = false;
+        StartCoroutine(AvisoHealing());
+    }
+    IEnumerator AvisoHealing()
+    {
+        //activado:
+        avisoHealing.SetActive(true);
+
+        yield return new WaitForSeconds(2.5f);
         Debug.Log("[MenuManager.cs] - Curar Gameplay");
         //desactivado:
+        avisoHealing.SetActive(false);
         panel.SetActive(false);
         menuInicial.SetActive(false);
         playingContraataque = false;
@@ -260,6 +273,7 @@ public class MenuManager : MonoBehaviour {
         EnemyBeat.SetActive(true);
         timer.timer = 0f;
     }
+
     public void AbrirMenuGameover()
     {        
         Debug.Log("[MenuManager.cs] - Gameover");

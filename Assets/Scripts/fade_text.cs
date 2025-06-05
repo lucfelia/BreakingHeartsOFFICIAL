@@ -122,6 +122,10 @@ public class FadeTextByCharacter : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+            if (SceneManager.GetActiveScene().name == "End")
+            {
+                SceneManager.LoadScene("TitleScreen");
+            }
         }
     }
 }
