@@ -36,7 +36,7 @@ public class PoetTrigger : MonoBehaviour
             else
             {
                 pressE.SetActive(false);
-                Invoke("StartDialogue", 1.25f);
+                Invoke("StartDialogue", 1.75f);
             }
         }
     }
